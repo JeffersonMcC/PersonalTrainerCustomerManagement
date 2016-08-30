@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.bignerdranch2nded.android.personaltrainer.MainActivity"
-    android:background="#304fb6"
+    android:background="#ffffff"
     android:weightSum="1">
 
     <ImageView
@@ -19,7 +19,8 @@
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/avatar"
-        android:background="#ffffff"/>
+        android:background="#ffffff"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +32,8 @@
         android:textStyle="bold"
         style="c"
         android:focusableInTouchMode="false"
-        android:textColor="#ffffff"/>
+        android:textColor="#000"
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -46,9 +48,9 @@
         android:id="@+id/password_TextView_label"
         android:text="@string/password_textview_label"
         android:layout_gravity="center_horizontal"
-        android:textColor="#ffffff"
+        android:textColor="#000"
         android:textStyle="bold"
-        android:textSize="30dp"/>
+        android:textSize="30sp"/>
 
     <EditText
         android:layout_width="225sp"
@@ -64,8 +66,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/log-in-button-with-arrow"
-        />
+        android:src="@drawable/login_button"
+        android:layout_marginTop="35dp"
+        android:background="#00ffffff"/>
 
 
 </LinearLayout>
