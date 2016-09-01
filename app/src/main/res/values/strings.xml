@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">PersonalTrainer</string>
     <string name="login_label">User sign in</string>
-    <string name="successful_login">Login successful.</string>
+    <string name="successful_login">Login successful!</string>
     <string name="unsuccessful_login">Login unsuccessful.</string>
-
+    <string name="username">jdoe1</string>
+    <string name="password">welcome1</string>
     <string name="username_textview_label">Enter username:</string>
     <string name="password_textview_label">Enter password:</string>
 </resources>
