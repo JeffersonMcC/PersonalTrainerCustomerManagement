@@ -12,7 +12,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_launcher);
+        if(actionBar != null){
+            actionBar.setDisplayShowCustomEnabled(true);
+            actionBar.setIcon(R.mipmap.ic_launcher);
+        }
+
     }
 }

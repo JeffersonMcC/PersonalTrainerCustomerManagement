@@ -67,7 +67,7 @@
         android:id="@+id/imageButton"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/login_button"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="45dp"
         android:background="#00ffffff"/>
 
 
