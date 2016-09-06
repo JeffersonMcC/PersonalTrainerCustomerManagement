@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PersonalTrainer</string>
+    <string name="app_name">Personal Trainer</string>
     <string name="login_label">User sign in</string>
     <string name="successful_login">Login successful!</string>
     <string name="unsuccessful_login">Login unsuccessful.</string>
