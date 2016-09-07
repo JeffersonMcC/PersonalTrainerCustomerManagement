@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="6dp"
+            android:contentDescription="@string/client_profile_image_description"
+            android:src="@drawable/user"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/profile_image"
+            android:layout_toRightOf="@id/profile_image"
+            android:background="#fff"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            tools:text="Jefferson Orion McCloskey"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:padding="2dp"
+        android:background="#555dfa"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="2dp">
+
+            <ImageView
+                android:id="@+id/schedule_icon_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:clickable="true"
+                android:contentDescription="@string/session_function_description"
+                android:padding="5dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/calendar"
+                />
+
+            <TextView
+                android:id="@+id/schedule_icon_label_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:text="@string/session_icon_label"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="2dp">
+
+            <ImageView
+                android:id="@+id/payment_icon_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:clickable="true"
+                android:contentDescription="@string/payment_function_description"
+                android:padding="5dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/payment_method"/>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:text="@string/payment_icon_label"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/contact_icon_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:clickable="true"
+                android:contentDescription="@string/contact_function_description"
+                android:padding="5dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/phone_call"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:text="@string/contact_icon_label"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
+
+
