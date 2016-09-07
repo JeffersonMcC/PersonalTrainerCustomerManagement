@@ -14,4 +14,6 @@
     <string name="session_icon_label">Session</string>
     <string name="payment_icon_label">Payment</string>
     <string name="contact_icon_label">Contact</string>
+    <string name="credit_card_payment">Credit card</string>
+    <string name="cash_payment">Cash</string>
 </resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/credit_card_icon_image_button"
+            android:src="@drawable/credit_card"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Credit card"
+            android:id="@+id/credit_card_payment_label"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/credit_card_icon_image_button"
+            android:layout_toEndOf="@+id/credit_card_icon_image_button"
+            android:layout_marginTop="22dp"/>
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/cash_icon_image_view"
+            android:src="@drawable/dollar_symbol"
+            android:scaleType="fitXY"
+            android:layout_below="@+id/credit_card_icon_image_button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cash"
+            android:id="@+id/cash_payment_label"
+            android:layout_alignTop="@+id/cash_icon_image_view"
+            android:layout_toRightOf="@+id/cash_icon_image_view"
+            android:layout_toEndOf="@+id/cash_icon_image_view"
+            android:layout_marginTop="21dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
