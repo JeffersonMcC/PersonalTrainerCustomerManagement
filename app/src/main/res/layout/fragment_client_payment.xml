@@ -24,8 +24,8 @@
             android:text="Credit card"
             android:id="@+id/credit_card_payment_label"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/credit_card_icon_image_button"
-            android:layout_toEndOf="@+id/credit_card_icon_image_button"
+            android:layout_toRightOf="@id/credit_card_icon_image_button"
+            android:layout_toEndOf="@id/credit_card_icon_image_button"
             android:layout_marginTop="22dp"/>
 
         <ImageButton
@@ -45,8 +45,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Cash"
             android:id="@+id/cash_payment_label"
-            android:layout_alignTop="@+id/cash_icon_image_view"
-            android:layout_toRightOf="@+id/cash_icon_image_view"
+            android:layout_alignTop="@id/cash_icon_image_view"
+            android:layout_toRightOf="@id/cash_icon_image_view"
             android:layout_toEndOf="@+id/cash_icon_image_view"
             android:layout_marginTop="21dp"/>
 
