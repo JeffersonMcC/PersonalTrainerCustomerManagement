@@ -17,4 +17,11 @@
     <string name="credit_card_payment">Credit card</string>
     <string name="cash_payment">Cash</string>
     <string name="add_contact">Add contact</string>
+    <string name="client_session_title_edit_text">Title:</string>
+    <string name="client_session_description_edit_text">Description: </string>
+    <string name="cancel_button">Cancel</string>
+    <string name="ok_button">Ok</string>
+    <string name="print_receipt_label_text_view">Print</string>
+    <string name="email_receipt_label_text_view">Email</string>
+    <string name="generate_recipt_label_button">Generate receipt</string>
 </resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="179dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingLeft="30dp"
+        android:layout_gravity="center">
+
+        <CheckBox   android:id="@+id/print_receipt_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/printing_tool_64px"
+            android:drawableEnd="@drawable/printing_tool_64px"
+            android:drawablePadding="5dp"
+            android:text="@string/print_receipt_label_text_view"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/print_receipt_checkbox"
+            android:layout_marginTop="10dp"
+            android:drawableRight="@drawable/e_mail_envelope_64px"
+            android:drawableEnd="@drawable/e_mail_envelope_64px"
+            android:drawablePadding="5dp"
+            android:text="@string/email_receipt_label_text_view"/>
+                    <!--
+            android:layout_toLeftOf="@id/printer_icon_image_view"
+            android:layout_toStartOf="@id/printer_icon_image_view"
+            android:layout_alignTop="@id/printer_icon_image_view"
+            android:layout_marginTop="21dp"/>
+            -->
+
+        <!--
+        <ImageView
+            android:id="@+id/printer_icon_image_view"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/printing_tool"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/printer_icon_image_view"
+            android:layout_marginTop="21dp"
+            android:layout_toEndOf="@id/printer_icon_image_view"
+            android:layout_toRightOf="@id/printer_icon_image_view"
+            android:text="@string/print_receipt_label_text_view"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:id="@+id/email_icon_image_view"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:layout_below="@id/printer_icon_image_view"
+            android:src="@drawable/e_mail_envelope"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/email_icon_image_view"
+            android:layout_marginTop="21dp"
+            android:layout_toEndOf="@id/email_icon_image_view"
+            android:layout_toRightOf="@id/email_icon_image_view"
+            android:text="@string/email_receipt_label_text_view"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp"/>
+-->
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center">
+
+        <Button android:id="@+id/cancel_receipt_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel_button"
+            android:layout_marginRight="10dp"/>
+
+        <Button android:id="@+id/generate_receipt_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/generate_recipt_label_button"/>
+
+    </LinearLayout>
+</LinearLayout>
