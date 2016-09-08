@@ -18,7 +18,7 @@ public abstract class DoubleFragmentActivity extends FragmentActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_host);
+        setContentView(R.layout.activity_fragment);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();

@@ -77,7 +77,7 @@ public class ClientListFragment extends Fragment {
 
         @Override
         public void onClick(View v){
-            Intent intent = ClientActivity.newIntent(getActivity(), mClient.getId());
+            Intent intent = ClientActivity.newIntent(getActivity(), mClient.getId(), 0);
 
             startActivity(intent);
         }
