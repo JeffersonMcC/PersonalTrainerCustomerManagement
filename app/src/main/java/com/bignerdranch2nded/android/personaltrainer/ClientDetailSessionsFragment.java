@@ -9,19 +9,18 @@ import android.view.ViewGroup;
 import java.util.UUID;
 
 /**
- * Created by Jeffrow on 9/6/2016.
+ * Created by Jeffrow on 9/7/2016.
  */
-public class ClientDetailUpperHalfFragment extends Fragment {
-
+public class ClientDetailSessionsFragment extends Fragment {
     private static final String ARG_CLIENT_ID = "client-id";
     private Client mClient;
 
-    public static ClientDetailUpperHalfFragment newInstance(UUID clientId){
+    public static ClientDetailSessionsFragment newInstance(UUID clientId){
         Bundle args = new Bundle();
 
         args.putSerializable(ARG_CLIENT_ID, clientId);
 
-        ClientDetailUpperHalfFragment fragment = new ClientDetailUpperHalfFragment();
+        ClientDetailSessionsFragment fragment = new ClientDetailSessionsFragment();
 
         fragment.setArguments(args);
 
@@ -39,7 +38,7 @@ public class ClientDetailUpperHalfFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.fragment_client_uHalf, container, false);
+        View v = inflater.inflate(R.layout.fragment_client_sessions, container, false);
 
         return v;
     }

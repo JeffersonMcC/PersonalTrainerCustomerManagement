@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentTransaction;
  */
 public abstract class DoubleFragmentActivity extends FragmentActivity{
 
-    protected abstract Fragment createOneFragment();
+    protected abstract Fragment createFirstFragment();
 
     protected abstract Fragment createSecondFragment();
 
@@ -26,7 +26,7 @@ public abstract class DoubleFragmentActivity extends FragmentActivity{
         Fragment fragmentTwo = fm.findFragmentById(R.id.fragment_container_two);
 
         if(fragmentOne == null){
-            fragmentOne = createOneFragment();
+            fragmentOne = createFirstFragment();
             transaction.add(R.id.fragment_container_one, fragmentOne);
         }
         if(fragmentTwo == null){
