@@ -19,7 +19,7 @@ public class ClientListActivity extends SingleFragmentActivity{
     }
 
     public static Intent newIntent(Context packageContext, UUID userId){
-        Intent i = new Intent(packageContext, ClientActivity.class);
+        Intent i = new Intent(packageContext, ClientListActivity.class);
 
         i.putExtra(EXTRA_USER_ID, userId);
 

@@ -5,14 +5,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 
 /**
  * Created by Jeffrow on 9/6/2016.
  */
 public abstract class DoubleFragmentActivity extends FragmentActivity{
+    private static final String TAG = "DoubleFragmentActivity";
 
     protected abstract Fragment createFirstFragment();
-
     protected abstract Fragment createSecondFragment();
 
     @Override
@@ -27,11 +28,14 @@ public abstract class DoubleFragmentActivity extends FragmentActivity{
 
         if(fragmentOne == null){
             fragmentOne = createFirstFragment();
-            transaction.add(R.id.fragment_container_one, fragmentOne);
+            transaction.add(R.id.fragment_container_one, fragmentOne).commit();
+            Log.d(TAG, "fragmentOne transaction finished");
+
         }
         if(fragmentTwo == null){
             fragmentTwo = createSecondFragment();
-            transaction.add(R.id.fragment_container_two, fragmentTwo).commit();
+            transaction.add(R.id.fragment_container_two, fragmentTwo);
+            Log.d(TAG, "fragmentTwo transaction finished");
         }else {
             transaction.replace(R.id.fragment_container_two, fragmentTwo).addToBackStack(null).commit();
         }
