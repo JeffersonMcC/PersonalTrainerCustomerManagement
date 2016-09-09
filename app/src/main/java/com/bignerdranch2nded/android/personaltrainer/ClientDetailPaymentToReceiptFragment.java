@@ -13,34 +13,13 @@ import java.util.UUID;
  */
 public class ClientDetailPaymentToReceiptFragment extends Fragment {
 
-    private static final String ARG_CLIENT_ID = "client-id";
-    private Client mClient;
-
-    public static ClientDetailPaymentToReceiptFragment newInstance(UUID clientId){
-        Bundle args = new Bundle();
-
-        args.putSerializable(ARG_CLIENT_ID, clientId);
-
-        ClientDetailPaymentToReceiptFragment fragment = new ClientDetailPaymentToReceiptFragment();
-
-        fragment.setArguments(args);
-
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-
-        UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
-
-        mClient = ClientLab.get(getActivity()).getClient(clientId);
+    public static ClientDetailPaymentToReceiptFragment newInstance(){
+        return new ClientDetailPaymentToReceiptFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_client_payment_receipt, container, false);
-
         return v;
     }
 }

@@ -36,12 +36,12 @@ public class ClientActivity extends DoubleFragmentActivity {
 
     @Override
     protected Fragment createSecondFragment(){
-        return ClientDetailTabsFragment.newInstance(getClientId());
+        return ClientDetailTabsFragment.newInstance();
     }
 
     @Override
     protected Fragment createThirdFragment(){
-        Fragment thirdFragment = ClientDetailManager.getThirdFragment(uniqueFragment, getClientId());
+        Fragment thirdFragment = ClientDetailThirdFragmentManager.getThirdFragment(uniqueFragment);
 
         return thirdFragment;
     }

@@ -13,34 +13,13 @@ import java.util.UUID;
  */
 public class ClientDetailContact extends Fragment {
 
-    private static final String ARG_CLIENT_ID = "client-id";
-    private Client mClient;
-
-    public static ClientDetailContact newInstance(UUID clientId){
-        Bundle args = new Bundle();
-
-        args.putSerializable(ARG_CLIENT_ID, clientId);
-
-        ClientDetailContact fragment = new ClientDetailContact();
-
-        fragment.setArguments(args);
-
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-
-        UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
-
-        mClient = ClientLab.get(getActivity()).getClient(clientId);
+    public static ClientDetailContact newInstance(){
+        return new ClientDetailContact();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_client_contact, container, false);
-
         return v;
     }
 }

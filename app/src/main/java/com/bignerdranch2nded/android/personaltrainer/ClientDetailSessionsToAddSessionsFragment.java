@@ -13,28 +13,8 @@ import java.util.UUID;
  */
 public class ClientDetailSessionsToAddSessionsFragment extends Fragment {
 
-    private static final String ARG_CLIENT_ID = "client-id";
-    private Client mClient;
-
-    public static ClientDetailSessionsToAddSessionsFragment newInstance(UUID clientId){
-        Bundle args = new Bundle();
-
-        args.putSerializable(ARG_CLIENT_ID, clientId);
-
-        ClientDetailSessionsToAddSessionsFragment fragment = new ClientDetailSessionsToAddSessionsFragment();
-
-        fragment.setArguments(args);
-
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-
-        UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
-
-        mClient = ClientLab.get(getActivity()).getClient(clientId);
+    public static ClientDetailSessionsToAddSessionsFragment newInstance(){
+        return new ClientDetailSessionsToAddSessionsFragment();
     }
 
     @Override
