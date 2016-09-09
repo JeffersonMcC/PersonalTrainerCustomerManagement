@@ -15,6 +15,7 @@ public abstract class DoubleFragmentActivity extends FragmentActivity{
 
     protected abstract Fragment createFirstFragment();
     protected abstract Fragment createSecondFragment();
+    protected abstract Fragment createThirdFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -25,19 +26,21 @@ public abstract class DoubleFragmentActivity extends FragmentActivity{
         FragmentTransaction transaction = fm.beginTransaction();
         Fragment fragmentOne = fm.findFragmentById(R.id.fragment_container_one);
         Fragment fragmentTwo = fm.findFragmentById(R.id.fragment_container_two);
+        Fragment fragmentThree = fm.findFragmentById(R.id.fragment_container_three);
 
         if(fragmentOne == null){
             fragmentOne = createFirstFragment();
             transaction.add(R.id.fragment_container_one, fragmentOne).commit();
-            Log.d(TAG, "fragmentOne transaction finished");
-
         }
         if(fragmentTwo == null){
             fragmentTwo = createSecondFragment();
             transaction.add(R.id.fragment_container_two, fragmentTwo);
-            Log.d(TAG, "fragmentTwo transaction finished");
-        }else {
-            transaction.replace(R.id.fragment_container_two, fragmentTwo).addToBackStack(null).commit();
+        }
+        if(fragmentThree == null){
+            fragmentThree = createThirdFragment();
+            transaction.add(R.id.fragment_container_three, fragmentThree);
+        } else {
+            transaction.replace(R.id.fragment_container_three, fragmentTwo).addToBackStack(null).commit();
         }
     }
 }

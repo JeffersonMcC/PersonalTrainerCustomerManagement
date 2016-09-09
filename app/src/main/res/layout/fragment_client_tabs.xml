@@ -1,41 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ffffff"
     android:orientation="vertical">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/profile_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="6dp"
-            android:contentDescription="@string/client_profile_image_description"
-            android:src="@drawable/user"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/profile_image"
-            android:layout_toRightOf="@id/profile_image"
-            android:background="#fff"
-            android:textColor="#000000"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            tools:text="Jefferson Orion McCloskey"/>
-
-    </RelativeLayout>
-
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -48,7 +19,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginRight="2dp">
+            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp">
 
             <ImageView
                 android:id="@+id/schedule_icon_image_view"
@@ -82,7 +54,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginRight="2dp">
+            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp">
 
             <ImageView
                 android:id="@+id/payment_icon_image_view"
@@ -143,6 +116,6 @@
 
 
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>
 
 

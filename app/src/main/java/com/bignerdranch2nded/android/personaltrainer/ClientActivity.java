@@ -10,7 +10,7 @@ import java.util.UUID;
 /**
  * Created by Jeffrow on 9/5/2016.
  */
-public class ClientActivity extends DoubleFragmentActivity{
+public class ClientActivity extends DoubleFragmentActivity {
 
     private static final String TAG = "ClientActivity";
 
@@ -31,34 +31,22 @@ public class ClientActivity extends DoubleFragmentActivity{
     @Override
     protected Fragment createFirstFragment(){
         Log.d(TAG, "createFirstFragment started");
-        return ClientDetailUpperHalfFragment.newInstance(getClientId());
+        return ClientDetailProfileFragment.newInstance(getClientId());
     }
 
     @Override
     protected Fragment createSecondFragment(){
-        Log.d(TAG, "createSecondFragment() started");
-        Fragment secondFragment = null;
-        switch (uniqueFragment){
-            case 0:
-                secondFragment = ClientDetailSessionsFragment.newInstance(getClientId());
-                break;
-            case 1:
-                secondFragment = ClientDetailSessionsToAddSessionsFragment.newInstance(getClientId());
-                break;
-            case 2:
-                secondFragment = ClientDetailPaymentFragment.newInstance(getClientId());
-                break;
-            case 3:
-                secondFragment = ClientDetailPaymentToReceipt.newInstance(getClientId());
-                break;
-            case 4:
-                secondFragment = ClientDetailContact.newInstance(getClientId());
-        }
-
-        return secondFragment;
+        return ClientDetailTabsFragment.newInstance(getClientId());
     }
 
-    protected UUID getClientId(){
+    @Override
+    protected Fragment createThirdFragment(){
+        Fragment thirdFragment = ClientDetailManager.getThirdFragment(uniqueFragment, getClientId());
+
+        return thirdFragment;
+    }
+
+    public UUID getClientId(){
         UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
         return clientId;
     }

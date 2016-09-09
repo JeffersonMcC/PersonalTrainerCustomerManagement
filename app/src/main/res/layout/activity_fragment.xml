@@ -12,12 +12,11 @@
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  android:id="@+id/fragment_container_two"
                  android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_gravity="bottom"/>
+                 android:layout_height="wrap_content"/>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                 android:id="@+id/fragment_container"
+                 android:id="@+id/fragment_container_three"
                  android:layout_width="match_parent"
-                 android:layout_height="match_parent"/>
+                 android:layout_height="wrap_content"/>
 
 </LinearLayout>
