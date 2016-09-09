@@ -16,21 +16,20 @@ public class ClientActivity extends DoubleFragmentActivity {
 
     private static final String EXTRA_CLIENT_ID = "com.bignerdranch2nded.android.personaltrainer.client_id";
     private static final String EXTRA_FRAGMENT_ID = "com.bignerdranch2nded.android.personaltrainer.fragment_id";
-    private static int uniqueFragment;
+    private static String uniqueFragment;
 
-    public static Intent newIntent(Context packageContext, UUID clientId, int fragmentId){
+    public static Intent newIntent(Context packageContext, UUID clientId, String fragmentId){
         Intent intent = new Intent(packageContext, ClientActivity.class);
         uniqueFragment = fragmentId;
 
         intent.putExtra(EXTRA_CLIENT_ID, clientId);
-        intent.putExtra(EXTRA_FRAGMENT_ID, uniqueFragment);
+        //intent.putExtra(EXTRA_FRAGMENT_ID, uniqueFragment);
 
         return intent;
     }
 
     @Override
     protected Fragment createFirstFragment(){
-        Log.d(TAG, "createFirstFragment started");
         return ClientDetailProfileFragment.newInstance(getClientId());
     }
 
@@ -47,7 +46,9 @@ public class ClientActivity extends DoubleFragmentActivity {
     }
 
     public UUID getClientId(){
-        UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
-        return clientId;
+        Log.d(TAG, "serializable will be returned to createFirstfragment()");
+        return (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
     }
+
+
 }

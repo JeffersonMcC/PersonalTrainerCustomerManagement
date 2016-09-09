@@ -31,6 +31,7 @@ public abstract class DoubleFragmentActivity extends FragmentActivity{
         if(fragmentOne == null){
             fragmentOne = createFirstFragment();
             transaction.add(R.id.fragment_container_one, fragmentOne).commit();
+            Log.d(TAG, "fragmentOne added to fragment_container_one");
         }
         if(fragmentTwo == null){
             fragmentTwo = createSecondFragment();

@@ -20,6 +20,7 @@ import java.util.List;
  * Created by Jeffrow on 9/5/2016.
  */
 public class ClientListFragment extends Fragment {
+    private static final String TAG = "ClientListFragment";
     private RecyclerView mClientRecyclerView;
     private ClientAdapter mAdapter;
 
@@ -77,8 +78,9 @@ public class ClientListFragment extends Fragment {
 
         @Override
         public void onClick(View v){
-            Intent intent = ClientActivity.newIntent(getActivity(), mClient.getId(), 0);
+            Intent intent = ClientActivity.newIntent(getActivity(), mClient.getId(), "sessions");
 
+            Log.d(TAG, "ClientActivity will be started");
             startActivity(intent);
         }
     }
@@ -99,8 +101,8 @@ public class ClientListFragment extends Fragment {
         }
 
         @Override
-        public void onBindViewHolder(ClientHolder holder, int postion){
-            Client client = mClients.get(postion);
+        public void onBindViewHolder(ClientHolder holder, int position){
+            Client client = mClients.get(position);
             holder.bindClient(client);
         }
 

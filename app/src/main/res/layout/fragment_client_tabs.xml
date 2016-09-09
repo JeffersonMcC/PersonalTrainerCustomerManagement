@@ -23,7 +23,7 @@
             android:layout_marginEnd="2dp">
 
             <ImageView
-                android:id="@+id/schedule_icon_image_view"
+                android:id="@+id/sessions_icon_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
@@ -35,7 +35,7 @@
                 />
 
             <TextView
-                android:id="@+id/schedule_icon_label_text_view"
+                android:id="@+id/sessions_icon_label_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#fff"
