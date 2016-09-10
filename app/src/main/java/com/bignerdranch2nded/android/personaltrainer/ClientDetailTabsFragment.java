@@ -1,8 +1,8 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +17,8 @@ public class ClientDetailTabsFragment extends Fragment {
     private ImageView mSessionsImageView;
     private ImageView mPaymentImageView;
     private ImageView mContactImageView;
+
+    private Fragment mFragment;
 
     public static ClientDetailTabsFragment newInstance(){
         return new ClientDetailTabsFragment();
@@ -33,27 +35,31 @@ public class ClientDetailTabsFragment extends Fragment {
         mSessionsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Sessions button was pressed");
-                ClientDetailThirdFragmentManager.getThirdFragment("sessions");
+                ((ClientActivity)getActivity()).replaceThirdFragment("sessions");
             }
         });
 
         mPaymentImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Payment button was pressed");
-                ClientDetailThirdFragmentManager.getThirdFragment("payment");
+                ((ClientActivity)getActivity()).replaceThirdFragment("payment");
             }
         });
 
         mContactImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Contact button was pressed");
-                ClientDetailThirdFragmentManager.getThirdFragment("contact");
+                ((ClientActivity)getActivity()).replaceThirdFragment("contact");
             }
         });
 
         return v;
     }
+
+
+
+    private void getFragment(String fragmentId){
+        ClientActivity.getThirdFragment(fragmentId);
+    }
+
 }

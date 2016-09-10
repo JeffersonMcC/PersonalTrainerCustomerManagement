@@ -30,8 +30,7 @@ public abstract class DoubleFragmentActivity extends FragmentActivity{
 
         if(fragmentOne == null){
             fragmentOne = createFirstFragment();
-            transaction.add(R.id.fragment_container_one, fragmentOne).commit();
-            Log.d(TAG, "fragmentOne added to fragment_container_one");
+            transaction.add(R.id.fragment_container_one, fragmentOne);
         }
         if(fragmentTwo == null){
             fragmentTwo = createSecondFragment();
@@ -39,9 +38,10 @@ public abstract class DoubleFragmentActivity extends FragmentActivity{
         }
         if(fragmentThree == null){
             fragmentThree = createThirdFragment();
-            transaction.add(R.id.fragment_container_three, fragmentThree);
-        } else {
-            transaction.replace(R.id.fragment_container_three, fragmentTwo).addToBackStack(null).commit();
+            transaction.add(R.id.fragment_container_three, fragmentThree).commit();
+        } else{
+            fragmentThree = createThirdFragment();
+            transaction.add(R.id.fragment_container_three, fragmentThree).addToBackStack(null).commit();
         }
     }
 }
