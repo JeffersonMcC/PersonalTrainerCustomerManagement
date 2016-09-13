@@ -15,9 +15,13 @@
     <string name="session_icon_label">Session</string>
     <string name="payment_icon_label">Payment</string>
     <string name="contact_icon_label">Contact</string>
-    <string name="credit_card_payment">Credit card</string>
+    <string name="add_session_label_button">Add Session</string>
+    <string name="session_history">Session History:</string>
+    <string name="date_picker_title">Client's session date:</string>
+    <string name="information_for_date_picker">Information about session:</string>
+    <string name="credit_card_payment">Credit Card</string>
     <string name="cash_payment">Cash</string>
-    <string name="add_contact">Add contact</string>
+    <string name="add_contact">Add Contact</string>
     <string name="client_session_title_edit_text">Title:</string>
     <string name="client_session_description_edit_text">Description: </string>
     <string name="cancel_button">Cancel</string>

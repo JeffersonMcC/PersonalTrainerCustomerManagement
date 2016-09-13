@@ -6,14 +6,6 @@
     android:orientation="vertical"
     android:paddingTop="10dp">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Next session: 9/11/16"
-        android:textColor="#000"/>
-
     <Button
         android:id="@+id/add_session_button"
         android:layout_width="wrap_content"
@@ -21,9 +13,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:layout_gravity="center"
-        android:text="Add session"
+        android:text="@string/add_session_label_button"
         android:textAlignment="center"
         android:drawableLeft="@drawable/plus_black_symbol_16px"
+        android:drawableStart="@drawable/plus_black_symbol_16px"
         android:drawablePadding="5dp"/>
 
     <TextView
@@ -31,7 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="13dp"
-        android:text="Session history:"
+        android:paddingStart="13dp"
+        android:text="@string/session_history"
         android:textColor="#000"
         android:textStyle="bold"
         android:textSize="18sp"/>
