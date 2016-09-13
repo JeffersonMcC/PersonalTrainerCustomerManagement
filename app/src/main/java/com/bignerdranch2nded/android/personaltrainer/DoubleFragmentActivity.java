@@ -5,12 +5,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 /**
  * Created by Jeffrow on 9/6/2016.
  */
-public abstract class DoubleFragmentActivity extends FragmentActivity{
+public abstract class DoubleFragmentActivity extends AppCompatActivity {
     private static final String TAG = "DoubleFragmentActivity";
 
     protected abstract Fragment createFirstFragment();

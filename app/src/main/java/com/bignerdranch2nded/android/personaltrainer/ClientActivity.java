@@ -76,7 +76,7 @@ public class ClientActivity extends DoubleFragmentActivity{
         FragmentTransaction transaction = fm.beginTransaction();
         Fragment fragment = getThirdFragment(fragmentId);
 
-        transaction.replace(R.id.fragment_container_three, fragment).addToBackStack(null).commit();
+        transaction.replace(R.id.fragment_container_three, fragment).commit();
 
     }
 

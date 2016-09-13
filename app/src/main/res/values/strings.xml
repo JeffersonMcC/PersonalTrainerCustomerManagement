@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Personal Trainer</string>
+    <string name="client_list_page_name">Clients</string>
     <string name="login_label">User sign in</string>
     <string name="successful_login">Login successful!</string>
     <string name="unsuccessful_login">Login unsuccessful.</string>
@@ -8,9 +9,9 @@
     <string name="username_textview_label">Enter username:</string>
     <string name="password_textview_label">Enter password:</string>
     <string name="client_profile_image_description">Client profile image</string>
-    <string name="session_function_description">Workout sessions</string>
-    <string name="payment_function_description">Payment methods</string>
-    <string name="contact_function_description">Contact methods</string>
+    <string name="session_function_description">Workout Sessions</string>
+    <string name="payment_function_description">Payment Methods</string>
+    <string name="contact_function_description">Contact Methods</string>
     <string name="session_icon_label">Session</string>
     <string name="payment_icon_label">Payment</string>
     <string name="contact_icon_label">Contact</string>
@@ -23,5 +24,8 @@
     <string name="ok_button">Ok</string>
     <string name="print_receipt_label_text_view">Print</string>
     <string name="email_receipt_label_text_view">Email</string>
-    <string name="generate_recipt_label_button">Generate receipt</string>
+    <string name="generate_recipt_label_button">Generate Receipt</string>
+    <string name="user_logged_in">Logged in as %s</string>
+    <string name="new_client">New Client</string>
+    <string name="user_logout">Logout</string>
 </resources>

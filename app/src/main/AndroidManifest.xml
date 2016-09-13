@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.bignerdranch2nded.android.personaltrainer">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ClientListActivity">
+        <activity android:name=".ClientListActivity"
+                  android:label="@string/client_list_page_name">
         </activity>
-        <activity android:name=".ClientActivity">
+        <activity android:name=".ClientActivity"
+                  android:label="@string/client_list_page_name"
+                  android:parentActivityName=".ClientListActivity">>
         </activity>
     </application>
 
