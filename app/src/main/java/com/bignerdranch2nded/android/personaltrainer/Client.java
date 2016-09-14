@@ -19,38 +19,29 @@ public class Client {
         mSessionDate = new Date();
     }
 
+    public Client(UUID id){
+        mId = id;
+        mSessionDate = new Date();
+    }
+
     public UUID getId(){
         return mId;
-    }
-
-    public void setProfileImage(){
-
-    }
-
-    /*
-    public int getCustomProfileImage(){
-        mDrawableName = "";
-        int profileImageResourceId = getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
-    }
-    */
-
-    /*
-    public int getDefaultProfileImage(){
-        mDrawableName = "user";
-        profileImageResourceId = context.getResources().getIdentifier()
-    }
-    */
-
-    public String getName(){
-        return mName;
     }
 
     public void setName(String name){
         mName = name;
     }
 
+    public String getName(){
+        return mName;
+    }
+
     public Date getSessionDate(){
-        return mSessionDate;
+        if(mSessionDate != null){
+            return mSessionDate;
+        } else{
+            return null;
+        }
     }
 
     public void setSessionDate(Date date){

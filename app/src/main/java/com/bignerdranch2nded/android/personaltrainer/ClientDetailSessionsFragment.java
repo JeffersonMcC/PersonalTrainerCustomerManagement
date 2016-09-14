@@ -36,7 +36,7 @@ public class ClientDetailSessionsFragment extends Fragment {
         updateDate();
         mAddSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
                 DatePickerFragment dialog = DatePickerFragment.newInstance(mClient.getSessionDate());
                 dialog.setTargetFragment(ClientDetailSessionsFragment.this, REQUEST_DATE);

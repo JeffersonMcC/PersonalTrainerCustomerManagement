@@ -17,7 +17,7 @@
     <string name="contact_icon_label">Contact</string>
     <string name="add_session_label_button">Add Session</string>
     <string name="session_history">Session History:</string>
-    <string name="date_picker_title">Client's session date:</string>
+    <string name="date_picker_title">Client\'s session date:</string>
     <string name="information_for_date_picker">Information about session:</string>
     <string name="credit_card_payment">Credit Card</string>
     <string name="cash_payment">Cash</string>
