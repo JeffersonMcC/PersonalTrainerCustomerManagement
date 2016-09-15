@@ -1,7 +1,6 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,9 +55,22 @@ public class ClientListFragment extends Fragment {
         inflater.inflate(R.menu.fragment_client_list, menu);
 
         String userSubtitle = getString(R.string.user_logged_in, "jdoe1");
-
         AppCompatActivity activity = (AppCompatActivity)getActivity();
         activity.getSupportActionBar().setSubtitle(userSubtitle);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.menu_item_new_client:  //add a new crime to the list of crimes in the CrimeListFragment
+                Client client = new Client();
+                ClientLab.get(getActivity()).addClient(client);
+                Intent intent = ClientPagerActivity.newIntent(getActivity(), client.getId());
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void updateUI(){
@@ -92,15 +103,14 @@ public class ClientListFragment extends Fragment {
         public void bindClient(Client client){
             mClient = client;
             mNameTextView.setText(mClient.getName());
+            Log.d(TAG, "getSessionDate about to be started");
             mNextSessionDateTextView.setText(mClient.getSessionDate().toString());
             //mProfileImageView.setImageDrawable(mClient.getProfileImage);
         }
 
         @Override
         public void onClick(View v){
-            Intent intent = ClientActivity.newIntent(getActivity(), mClient.getId(), "sessions");
-
-            Log.d(TAG, "ClientActivity will be started");
+            Intent intent = ClientPagerActivity.newIntent(getActivity(), mClient.getId());
             startActivity(intent);
         }
     }

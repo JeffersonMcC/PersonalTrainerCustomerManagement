@@ -4,19 +4,34 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                 android:id="@+id/fragment_container_one"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"/>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                 android:id="@+id/fragment_container_two"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"/>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                 android:id="@+id/fragment_container_three"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"/>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.v4.view.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container_four"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.v4.view.ViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container_five"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

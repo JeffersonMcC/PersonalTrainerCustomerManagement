@@ -10,13 +10,18 @@ public class ClientDbSchema {
         public static final class Cols{
             public static final String UUID = "uuid";
             public static final String CLIENTNAME = "name";
+            public static final String CLIENTIMAGE = "picture";
         }
     }
 
-    public static final class SessionDateTable
-    public static final class Cols{
-        public static final String UUID = "uuid";
-        public static final String SESSIONSDATE = "session date";
-        public static final String SESSIONTITLE = "session title";
+    public static final class SessionDateTable{
+        public static final String NAME = "date";
+
+        public static final class Cols{
+            public static final String UUID = "uuid";
+            public static final String SESSIONSDATE = "session date";
+            public static final String SESSIONTITLE = "session title";
+            public static final String SESSIONDESCRIPTION = "session description";
+        }
     }
 }

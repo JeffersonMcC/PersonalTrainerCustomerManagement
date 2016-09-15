@@ -1,5 +1,7 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
+import android.util.Log;
+
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,11 +14,14 @@ public class Client {
     private String mName;
     private String mDrawableName;
     private int profileImageResourceId;
-    private Date mSessionDate;
+    private Date mSessionDate = new Date();
+
+    public static final String TAG = "Client";
 
     public Client(){
-        mId = UUID.randomUUID();
-        mSessionDate = new Date();
+        this(UUID.randomUUID());
+//        mId = UUID.randomUUID();
+//        mSessionDate = new Date();
     }
 
     public Client(UUID id){
@@ -36,17 +41,14 @@ public class Client {
         return mName;
     }
 
-    public Date getSessionDate(){
-        if(mSessionDate != null){
-            return mSessionDate;
-        } else{
-            return null;
-        }
-    }
-
     public void setSessionDate(Date date){
+        Log.d(TAG, "setSessionDate started");
         mSessionDate = date;
     }
 
+    public Date getSessionDate(){
+        Log.d(TAG, "getSessionDate started");
+        return mSessionDate;
+    }
 
 }

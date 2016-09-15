@@ -1,6 +1,5 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -35,31 +34,25 @@ public class ClientDetailTabsFragment extends Fragment {
         mSessionsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((ClientActivity)getActivity()).replaceThirdFragment("sessions");
+                ((ClientPagerActivity)getActivity()).replaceThirdFragment(0);
             }
         });
 
         mPaymentImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((ClientActivity)getActivity()).replaceThirdFragment("payment");
+                ((ClientPagerActivity)getActivity()).replaceThirdFragment(1);
             }
         });
 
         mContactImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((ClientActivity)getActivity()).replaceThirdFragment("contact");
+                ((ClientPagerActivity)getActivity()).replaceThirdFragment(2);
             }
         });
 
         return v;
-    }
-
-
-
-    private void getFragment(String fragmentId){
-        ClientActivity.getThirdFragment(fragmentId);
     }
 
 }

@@ -42,7 +42,7 @@ public abstract class DoubleFragmentActivity extends AppCompatActivity {
             transaction.add(R.id.fragment_container_three, fragmentThree).commit();
         } else{
             fragmentThree = createThirdFragment();
-            transaction.add(R.id.fragment_container_three, fragmentThree).addToBackStack(null).commit();
+            transaction.replace(R.id.fragment_container_three, fragmentThree).addToBackStack(null).commit();
         }
     }
 }

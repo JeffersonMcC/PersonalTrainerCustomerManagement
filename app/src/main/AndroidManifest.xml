@@ -21,7 +21,7 @@
         <activity android:name=".ClientListActivity"
                   android:label="@string/client_list_page_name">
         </activity>
-        <activity android:name=".ClientActivity"
+        <activity android:name=".ClientPagerActivity"
                   android:label="@string/client_list_page_name"
                   android:parentActivityName=".ClientListActivity">>
         </activity>

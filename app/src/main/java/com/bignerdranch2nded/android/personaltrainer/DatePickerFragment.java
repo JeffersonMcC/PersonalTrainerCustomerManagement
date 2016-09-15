@@ -50,27 +50,27 @@ public class DatePickerFragment extends DialogFragment {
         return new AlertDialog.Builder(getActivity())
                 .setView(v)
                 .setTitle(R.string.date_picker_title)
-                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        int year = mDatePicker.getYear();
-                        int month = mDatePicker.getMonth();
-                        int day = mDatePicker.getDayOfMonth();
-                        Date date = new GregorianCalendar(year, month, day).getTime();
-                        sendResult(Activity.RESULT_OK, date);
-                    }
-                })
+                .setPositiveButton(android.R.string.ok, null)//new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        int year = mDatePicker.getYear();
+//                        int month = mDatePicker.getMonth();
+//                        int day = mDatePicker.getDayOfMonth();
+//                        Date date = new GregorianCalendar(year, month, day).getTime();
+//                        sendResult(Activity.RESULT_OK, date);
+//                    }
+                //})
                 .create();
     }
 
-    private void sendResult(int resultCode, Date date){
-        if(getTargetFragment() == null){
-            return;
-        }
-
-        Intent intent = new Intent();
-        intent.putExtra(EXTRA_DATE, date);
-
-        getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, intent);
-    }
+//    private void sendResult(int resultCode, Date date){
+//        if(getTargetFragment() == null){
+//            return;
+//        }
+//
+//        Intent intent = new Intent();
+//        intent.putExtra(EXTRA_DATE, date);
+//
+//        getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, intent);
+//    }
 }
