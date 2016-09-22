@@ -22,10 +22,10 @@ public class SessionPagerActivity extends AppCompatActivity{
     private ViewPager mViewPager;
     private List<Session> mSessions;
 
-    public static Intent newIntent(Context packageContext, UUID sessionId, UUID clientId){
+    public static Intent newIntent(Context packageContext, UUID sessionId /*, UUID clientId*/){
         Intent intent = new Intent(packageContext, SessionPagerActivity.class);
         intent.putExtra(EXTRA_SESSION_ID, sessionId);
-        intent.putExtra(EXTRA_CLIENT_ID, clientId);
+        /*intent.putExtra(EXTRA_CLIENT_ID, clientId);*/
         return intent;
     }
 
@@ -35,7 +35,7 @@ public class SessionPagerActivity extends AppCompatActivity{
         setContentView(R.layout.activity_session_pager);
 
         UUID sessionId = (UUID)getIntent().getSerializableExtra(EXTRA_SESSION_ID);
-        final UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
+        UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
 
         mViewPager = (ViewPager)findViewById(R.id.activity_session_view_pager);
 
@@ -45,7 +45,7 @@ public class SessionPagerActivity extends AppCompatActivity{
             @Override
             public Fragment getItem(int position) {
                 Session session = mSessions.get(position);
-                return ClientSessionFragment.newInstance(clientId, session.getSessionId());
+                return ClientSessionFragment.newInstance(/*clientId,*/ session.getSessionId());
             }
 
             @Override

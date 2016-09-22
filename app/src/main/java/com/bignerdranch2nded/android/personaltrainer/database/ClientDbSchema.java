@@ -5,25 +5,25 @@ package com.bignerdranch2nded.android.personaltrainer.database;
  */
 public class ClientDbSchema {
     public static final class ClientListTable{
-        public static final String NAME = "client";
+        public static final String CLIENT_NAME = "client";
 
         public static final class Cols{
             public static final String UUID = "uuid";
-            public static final String CLIENT_NAME = "name";
+            public static final String NAME = "name";
             public static final String CLIENT_IMAGE = "picture";
         }
     }
 
     public static final class SessionListTable {
-        public static final String NAME = "date";
+        public static final String SESSION_NAME = "date";
 
         public static final class Cols{
-            public static final String SESSION_UUID = "session uuid";
-            public static final String CLIENT_UUID = "client uuid";
-            public static final String DATE = "session date";
-            public static final String TITLE = "session title";
-            public static final String DESCRIPTION = "session description";
-            public static final String COMPLETED = "session completed";
+            public static final String SESSIONUUID = "session uuid";
+            public static final String CLIENTUUID = "client uuid";
+            public static final String DATE = "date";
+            public static final String TITLE = "title";
+            public static final String DESCRIPTION = "description";
+            public static final String COMPLETED = "completed";
         }
     }
 }

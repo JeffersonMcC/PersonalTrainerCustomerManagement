@@ -30,9 +30,6 @@ public class ClientSessionsListFragment extends Fragment {
 
     private static final int REQUEST_DATE = 0;
 
-    private Client mClient;
-    private Session mSession;
-
     private Button mAddSessionButton;
 
     public static ClientSessionsListFragment newInstance(){
@@ -52,11 +49,13 @@ public class ClientSessionsListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
-                DatePickerFragment dialog = DatePickerFragment.newInstance(mSession.getDate());
+                DatePickerFragment dialog = DatePickerFragment.newInstance(new Date());
                 dialog.setTargetFragment(ClientSessionsListFragment.this, REQUEST_DATE);
                 dialog.show(manager, DIALOG_DATE);
             }
         });
+
+        updateUI();
 
         return v;
     }
@@ -80,18 +79,19 @@ public class ClientSessionsListFragment extends Fragment {
     }
 
     private class SessionHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        private TextView mTitleTextView;
         private TextView mDateTextView;
+        private TextView mTitleTextView;
         private CheckBox mCompletedCheckBox;
 
         private Session mSession;
+        private Client mClient;
 
         public SessionHolder(View itemView){
             super(itemView);
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (TextView)itemView.findViewById(R.id.list_item_session_date_text_view);
-            mDateTextView = (TextView)itemView.findViewById(R.id.list_item_session_title_text_view);
+            mDateTextView = (TextView)itemView.findViewById(R.id.list_item_session_date_text_view);
+            mTitleTextView = (TextView)itemView.findViewById(R.id.list_item_session_title_text_view);
             mCompletedCheckBox = (CheckBox)itemView.findViewById(R.id.list_item_session_completed_check_box);
         }
 
@@ -104,7 +104,8 @@ public class ClientSessionsListFragment extends Fragment {
 
         @Override
         public void onClick(View v){
-            Intent intent = SessionPagerActivity.newIntent(getActivity(), mSession.getSessionId(), mClient.getClientId());
+            Log.d(TAG, "Session list item has been clicked");
+            Intent intent = SessionPagerActivity.newIntent(getActivity(), mSession.getSessionId() /*, mClient.getClientId()*/);
             startActivity(intent);
         }
     }
@@ -138,6 +139,7 @@ public class ClientSessionsListFragment extends Fragment {
             mSessions = sessions;
         }
     }
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode != Activity.RESULT_OK){
@@ -151,8 +153,10 @@ public class ClientSessionsListFragment extends Fragment {
         }
     }
 
+
     private void updateDate(){
         Log.d(TAG, "getSessionDate about to be started");
         //mAddSessionButton.setText(mClient.getSessionDate().toString());
     }
+    */
 }

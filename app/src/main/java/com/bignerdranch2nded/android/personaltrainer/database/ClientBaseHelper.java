@@ -20,16 +20,16 @@ public class ClientBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + ClientListTable.NAME + "(" +
+        db.execSQL("create table " + ClientListTable.CLIENT_NAME + "(" +
                 " _id integer primary key autoincrement, " +
                 ClientListTable.Cols.UUID + ", " +
-                ClientListTable.Cols.CLIENT_NAME + ")"
+                ClientListTable.Cols.NAME + ")"
         );
 
-        db.execSQL("create table " + SessionListTable.NAME + "(" +
+        db.execSQL("create table " + SessionListTable.SESSION_NAME + "(" +
                 " _id integer primary key autoincrement, " +
-                SessionListTable.Cols.SESSION_UUID + ", " +
-                SessionListTable.Cols.CLIENT_UUID + ", " +
+                SessionListTable.Cols.SESSIONUUID + ", " +
+                SessionListTable.Cols.CLIENTUUID + ", " +
                 SessionListTable.Cols.DATE + ", " +
                 SessionListTable.Cols.TITLE + ", " +
                 SessionListTable.Cols.DESCRIPTION + ", " +

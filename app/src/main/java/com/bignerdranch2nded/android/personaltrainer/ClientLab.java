@@ -37,7 +37,7 @@ public class ClientLab {
 
     public void addClient(Client c){
         ContentValues values = getClientContentValues(c);
-        mDatabase.insert(ClientListTable.NAME, null, values);
+        mDatabase.insert(ClientListTable.CLIENT_NAME, null, values);
     }
 
     public List<Client> getClients(){
@@ -78,14 +78,14 @@ public class ClientLab {
         String uuidString = client.getClientId().toString();
         ContentValues values = getClientContentValues(client);
 
-        mDatabase.update(ClientListTable.NAME, values,
+        mDatabase.update(ClientListTable.CLIENT_NAME, values,
                 ClientListTable.Cols.UUID + " = ?",
                 new String[] {uuidString});
     }
 
     public void addSession(Session s){
         ContentValues values = getSessionsContentValues(s);
-        mDatabase.insert(SessionListTable.NAME, null, values);
+        mDatabase.insert(SessionListTable.SESSION_NAME, null, values);
     }
 
     public List<Session> getSessions(){
@@ -105,7 +105,7 @@ public class ClientLab {
 
     public Session getSession(UUID id){
         ClientCursorWrapper cursor = queryClientInformation(
-                SessionListTable.Cols.SESSION_UUID + " = ? ",
+                SessionListTable.Cols.SESSIONUUID + " = ? ",
                 new String[]{id.toString()}, "sessions"
         );
 
@@ -125,23 +125,23 @@ public class ClientLab {
         //String uuidClientString = client.getClientId().toString();
         ContentValues values = getSessionsContentValues(session);
 
-        mDatabase.update(SessionListTable.NAME, values,
-                SessionListTable.Cols.SESSION_UUID + " = ? ",
+        mDatabase.update(SessionListTable.SESSION_NAME, values,
+                SessionListTable.Cols.SESSIONUUID + " = ? ",
                 new String[] {uuidSessionString});
     }
 
     private static ContentValues getClientContentValues(Client client){
         ContentValues values = new ContentValues();
         values.put(ClientListTable.Cols.UUID, client.getClientId().toString());
-        values.put(ClientListTable.Cols.CLIENT_NAME, client.getName());
+        values.put(ClientListTable.Cols.NAME, client.getName());
 
         return values;
     }
 
     private static ContentValues getSessionsContentValues(Session session){
         ContentValues values = new ContentValues();
-        values.put(SessionListTable.Cols.SESSION_UUID, session.getSessionId().toString());
-        values.put(SessionListTable.Cols.CLIENT_UUID, session.getClientId().toString());
+        values.put(SessionListTable.Cols.SESSIONUUID, session.getSessionId().toString());
+        values.put(SessionListTable.Cols.CLIENTUUID, session.getClientId().toString());
         values.put(SessionListTable.Cols.DATE, session.getDate().getTime());
         values.put(SessionListTable.Cols.TITLE, session.getTitle());
         values.put(SessionListTable.Cols.DESCRIPTION, session.getDescription());
@@ -154,7 +154,7 @@ public class ClientLab {
         Cursor cursor = null;
         if(whichTable == "client"){
             cursor = mDatabase.query(
-                    ClientListTable.NAME,
+                    ClientListTable.CLIENT_NAME,
                     null, //Columns - null selects all columns
                     whereClause,
                     whereArgs,
@@ -164,7 +164,7 @@ public class ClientLab {
             );
         } else if(whichTable == "session"){
             cursor = mDatabase.query(
-                    SessionListTable.NAME,
+                    SessionListTable.SESSION_NAME,
                     null, //Columns - null selects all columns
                     whereClause,
                     whereArgs,

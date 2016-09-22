@@ -33,10 +33,11 @@ public class ClientSessionFragment extends Fragment {
     private CheckBox mCompletedCheckBox;
 
     private static final String TAG = "ClientSessionFragment";
-    public static ClientSessionFragment newInstance(UUID clientId, UUID sessionId){
+    public static ClientSessionFragment newInstance(UUID sessionId /*UUID clientId*/){
         Bundle args = new Bundle();
-        args.putSerializable(ARG_CLIENT_ID, clientId);
         args.putSerializable(ARG_SESSION_ID, sessionId);
+        /*args.putSerializable(ARG_CLIENT_ID, clientId);*/
+
 
         ClientSessionFragment fragment = new ClientSessionFragment();
         fragment.setArguments(args);
@@ -47,7 +48,7 @@ public class ClientSessionFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
 
-        UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
+        /*UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);*/
         UUID sessionId = (UUID)getArguments().getSerializable(ARG_SESSION_ID);
 
         mSession = ClientLab.get(getActivity()).getSession(sessionId);
