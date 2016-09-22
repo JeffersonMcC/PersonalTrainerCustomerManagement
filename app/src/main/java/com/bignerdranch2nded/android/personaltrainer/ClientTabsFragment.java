@@ -10,8 +10,8 @@ import android.widget.ImageView;
 /**
  * Created by Jeffrow on 9/9/2016.
  */
-public class ClientDetailTabsFragment extends Fragment {
-    private static final String TAG = "ClientDetailTabsFragment";
+public class ClientTabsFragment extends Fragment {
+    private static final String TAG = "ClientTabsFragment";
 
     private ImageView mSessionsImageView;
     private ImageView mPaymentImageView;
@@ -19,8 +19,8 @@ public class ClientDetailTabsFragment extends Fragment {
 
     private Fragment mFragment;
 
-    public static ClientDetailTabsFragment newInstance(){
-        return new ClientDetailTabsFragment();
+    public static ClientTabsFragment newInstance(){
+        return new ClientTabsFragment();
     }
 
     @Override
@@ -34,21 +34,21 @@ public class ClientDetailTabsFragment extends Fragment {
         mSessionsImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((ClientPagerActivity)getActivity()).replaceThirdFragment(0);
+                ((ClientActivity)getActivity()).replaceThirdFragment(0);
             }
         });
 
         mPaymentImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((ClientPagerActivity)getActivity()).replaceThirdFragment(1);
+                ((ClientActivity)getActivity()).replaceThirdFragment(1);
             }
         });
 
         mContactImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((ClientPagerActivity)getActivity()).replaceThirdFragment(2);
+                ((ClientActivity)getActivity()).replaceThirdFragment(2);
             }
         });
 

@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.ClientListTable;
-import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.SessionDateTable;
+import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.SessionListTable;
 
 /**
  * Created by Jeffrow on 9/12/2016.
@@ -23,15 +23,17 @@ public class ClientBaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table " + ClientListTable.NAME + "(" +
                 " _id integer primary key autoincrement, " +
                 ClientListTable.Cols.UUID + ", " +
-                ClientListTable.Cols.CLIENTNAME + ")"
+                ClientListTable.Cols.CLIENT_NAME + ")"
         );
 
-        db.execSQL("create table " + SessionDateTable.NAME + "(" +
+        db.execSQL("create table " + SessionListTable.NAME + "(" +
                 " _id integer primary key autoincrement, " +
-                SessionDateTable.Cols.UUID + ", " +
-                SessionDateTable.Cols.SESSIONSDATE +
-                SessionDateTable.Cols.SESSIONTITLE +
-                SessionDateTable.Cols.SESSIONDESCRIPTION+ ")"
+                SessionListTable.Cols.SESSION_UUID + ", " +
+                SessionListTable.Cols.CLIENT_UUID + ", " +
+                SessionListTable.Cols.DATE + ", " +
+                SessionListTable.Cols.TITLE + ", " +
+                SessionListTable.Cols.DESCRIPTION + ", " +
+                SessionListTable.Cols.COMPLETED + ")"
         );
     }
 

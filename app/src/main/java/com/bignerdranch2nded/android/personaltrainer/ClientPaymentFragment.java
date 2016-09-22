@@ -6,15 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.UUID;
-
 /**
  * Created by Jeffrow on 9/7/2016.
  */
-public class ClientDetailPaymentFragment extends Fragment {
+public class ClientPaymentFragment extends Fragment {
 
-    public static ClientDetailPaymentFragment newInstance(){
-        return new ClientDetailPaymentFragment();
+    public static ClientPaymentFragment newInstance(){
+        return new ClientPaymentFragment();
     }
 
     @Override

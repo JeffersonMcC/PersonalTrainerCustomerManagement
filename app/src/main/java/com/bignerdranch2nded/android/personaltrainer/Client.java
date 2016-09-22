@@ -29,7 +29,7 @@ public class Client {
         mSessionDate = new Date();
     }
 
-    public UUID getId(){
+    public UUID getClientId(){
         return mId;
     }
 
@@ -39,16 +39,6 @@ public class Client {
 
     public String getName(){
         return mName;
-    }
-
-    public void setSessionDate(Date date){
-        Log.d(TAG, "setSessionDate started");
-        mSessionDate = date;
-    }
-
-    public Date getSessionDate(){
-        Log.d(TAG, "getSessionDate started");
-        return mSessionDate;
     }
 
 }

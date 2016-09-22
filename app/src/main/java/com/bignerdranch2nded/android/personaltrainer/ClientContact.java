@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 /**
  * Created by Jeffrow on 9/7/2016.
  */
-public class ClientDetailContact extends Fragment {
+public class ClientContact extends Fragment {
 
-    public static ClientDetailContact newInstance(){
-        return new ClientDetailContact();
+    public static ClientContact newInstance(){
+        return new ClientContact();
     }
 
     @Override

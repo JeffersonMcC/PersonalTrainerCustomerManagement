@@ -15,9 +15,9 @@ import java.util.UUID;
 /**
  * Created by Jeffrow on 9/5/2016.
  */
-public class ClientPagerActivity extends DoubleFragmentActivity{
+public class ClientActivity extends DoubleFragmentActivity{
 
-    private static final String TAG = "ClientPagerActivity";
+    private static final String TAG = "ClientActivity";
 
     private static final String EXTRA_CLIENT_ID = "com.bignerdranch2nded.android.personaltrainer.client_id";
     private static final String EXTRA_FRAGMENT_ID = "com.bignerdranch2nded.android.personaltrainer.fragment_id";
@@ -30,7 +30,7 @@ public class ClientPagerActivity extends DoubleFragmentActivity{
     private int thirdFragPos = 0;
 
     public static Intent newIntent(Context packageContext, UUID clientId){
-        Intent intent = new Intent(packageContext, ClientPagerActivity.class);
+        Intent intent = new Intent(packageContext, ClientActivity.class);
 
 
         intent.putExtra(EXTRA_CLIENT_ID, clientId);
@@ -55,7 +55,7 @@ public class ClientPagerActivity extends DoubleFragmentActivity{
             @Override
             public Fragment getItem(int position) {
                 Client client = mClients.get(position);
-                return ClientFragment.newInstance(client.getId());
+                return ClientProfileFragment.newInstance(client.getClientId());
             }
 
             @Override
@@ -77,7 +77,7 @@ public class ClientPagerActivity extends DoubleFragmentActivity{
         });
 
         for(int i = 0; i < mClients.size(); i++){
-            if(mClients.get(i).getId().equals(clientId)){
+            if(mClients.get(i).getClientId().equals(clientId)){
                 mClientViewPager.setCurrentItem(i);
                 break;
             }
@@ -93,12 +93,12 @@ public class ClientPagerActivity extends DoubleFragmentActivity{
 
     @Override
     protected Fragment createFirstFragment(){
-        return ClientDetailProfileFragment.newInstance(getClientId());
+        return ClientProfileFragment.newInstance(getClientId());
     }
 
     @Override
     protected Fragment createSecondFragment(){
-        return ClientDetailTabsFragment.newInstance();
+        return ClientTabsFragment.newInstance();
     }
 
     @Override
@@ -110,27 +110,23 @@ public class ClientPagerActivity extends DoubleFragmentActivity{
         return (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
     }
 
-//    public int updateThirdFragPost(int positionChange){
-//        return thirdFragPos += positionChange;
-//    }
-
     public static Fragment getThirdFragment(int fragId){
         Fragment thirdFragment = null;
         switch (fragId){
             case 0:    //sessions
-                thirdFragment = ClientDetailSessionsFragment.newInstance();
+                thirdFragment = ClientSessionsListFragment.newInstance();
                 break;
             case 1: //payment
-                thirdFragment = ClientDetailPaymentFragment.newInstance();
+                thirdFragment = ClientPaymentFragment.newInstance();
                 break;
             case 2: //contact
-                thirdFragment = ClientDetailContact.newInstance();
+                thirdFragment = ClientContact.newInstance();
                 break;
             case 3: //add sessions
-                thirdFragment = ClientDetailSessionsToAddSessionsFragment.newInstance();
+                thirdFragment = ClientSessionsToAddSessionsFragment.newInstance();
                 break;
             case 4: //receipt
-                thirdFragment = ClientDetailPaymentToReceiptFragment.newInstance();
+                thirdFragment = ClientPaymentToReceiptFragment.newInstance();
         }
         return thirdFragment;
     }

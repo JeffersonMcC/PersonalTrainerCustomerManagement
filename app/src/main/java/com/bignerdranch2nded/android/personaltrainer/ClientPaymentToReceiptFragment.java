@@ -6,21 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.UUID;
-
 /**
  * Created by Jeffrow on 9/7/2016.
  */
-public class ClientDetailSessionsToAddSessionsFragment extends Fragment {
+public class ClientPaymentToReceiptFragment extends Fragment {
 
-    public static ClientDetailSessionsToAddSessionsFragment newInstance(){
-        return new ClientDetailSessionsToAddSessionsFragment();
+    public static ClientPaymentToReceiptFragment newInstance(){
+        return new ClientPaymentToReceiptFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.fragment_client_sessions_add_sessions, container, false);
-
+        View v = inflater.inflate(R.layout.fragment_client_payment_receipt, container, false);
         return v;
     }
 }

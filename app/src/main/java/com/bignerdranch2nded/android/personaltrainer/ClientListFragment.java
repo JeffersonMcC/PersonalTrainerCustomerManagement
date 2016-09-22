@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -65,7 +64,7 @@ public class ClientListFragment extends Fragment {
             case R.id.menu_item_new_client:  //add a new crime to the list of crimes in the CrimeListFragment
                 Client client = new Client();
                 ClientLab.get(getActivity()).addClient(client);
-                Intent intent = ClientPagerActivity.newIntent(getActivity(), client.getId());
+                Intent intent = ClientActivity.newIntent(getActivity(), client.getClientId());
                 startActivity(intent);
                 return true;
             default:
@@ -103,14 +102,13 @@ public class ClientListFragment extends Fragment {
         public void bindClient(Client client){
             mClient = client;
             mNameTextView.setText(mClient.getName());
-            Log.d(TAG, "getSessionDate about to be started");
-            mNextSessionDateTextView.setText(mClient.getSessionDate().toString());
+            //mNextSessionDateTextView.setText(mClient.getDate().toString());
             //mProfileImageView.setImageDrawable(mClient.getProfileImage);
         }
 
         @Override
         public void onClick(View v){
-            Intent intent = ClientPagerActivity.newIntent(getActivity(), mClient.getId());
+            Intent intent = ClientActivity.newIntent(getActivity(), mClient.getClientId());
             startActivity(intent);
         }
     }

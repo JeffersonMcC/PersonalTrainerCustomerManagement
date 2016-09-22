@@ -47,7 +47,7 @@
         <Button android:id="@+id/generate_receipt_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/generate_recipt_label_button"/>
+            android:text="@string/generate_receipt_label_button"/>
 
     </LinearLayout>
 </LinearLayout>

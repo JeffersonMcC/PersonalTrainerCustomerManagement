@@ -16,7 +16,8 @@
             android:contentDescription="@string/client_profile_image_description"
             android:src="@drawable/user"/>
 
-        <TextView
+        <EditText
+            android:id="@+id/client_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -27,8 +28,7 @@
             android:background="#fff"
             android:textColor="#000000"
             android:textSize="17sp"
-            android:textStyle="bold"
-            android:text="Ricky Bobby"/>
+            android:textStyle="bold"/>
 
     </RelativeLayout>
 

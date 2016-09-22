@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.bignerdranch2nded.android.personaltrainer.database.ClientBaseHelper;
 import com.bignerdranch2nded.android.personaltrainer.database.ClientCursorWrapper;
-import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema;
 import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.ClientListTable;
+import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.SessionListTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,14 +36,14 @@ public class ClientLab {
     }
 
     public void addClient(Client c){
-        ContentValues values = getContentValues(c);
+        ContentValues values = getClientContentValues(c);
         mDatabase.insert(ClientListTable.NAME, null, values);
     }
 
     public List<Client> getClients(){
         List<Client> clients = new ArrayList<>();
 
-        ClientCursorWrapper cursor = queryClients(null, null);
+        ClientCursorWrapper cursor = queryClientInformation(null, null, "client");
 
         try{
             cursor.moveToFirst();
@@ -58,9 +58,9 @@ public class ClientLab {
     }
 
     public Client getClient(UUID id){
-        ClientCursorWrapper cursor = queryClients(
+        ClientCursorWrapper cursor = queryClientInformation(
                 ClientListTable.Cols.UUID + " = ?",
-                new String[]{id.toString()}
+                new String[]{id.toString()}, "client"
         );
 
         try{
@@ -75,33 +75,104 @@ public class ClientLab {
     }
 
     public void updateClient(Client client){
-        String uuidString = client.getId().toString();
-        ContentValues values = getContentValues(client);
+        String uuidString = client.getClientId().toString();
+        ContentValues values = getClientContentValues(client);
 
         mDatabase.update(ClientListTable.NAME, values,
                 ClientListTable.Cols.UUID + " = ?",
                 new String[] {uuidString});
     }
 
-    private static ContentValues getContentValues(Client client){
+    public void addSession(Session s){
+        ContentValues values = getSessionsContentValues(s);
+        mDatabase.insert(SessionListTable.NAME, null, values);
+    }
+
+    public List<Session> getSessions(){
+        List<Session> sessions = new ArrayList<>();
+        ClientCursorWrapper cursor = queryClientInformation(null, null, "session");
+        try{
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast()){
+                sessions.add(cursor.getSession());
+                cursor.moveToNext();
+            }
+        } finally{
+            cursor.close();
+        }
+        return sessions;
+    }
+
+    public Session getSession(UUID id){
+        ClientCursorWrapper cursor = queryClientInformation(
+                SessionListTable.Cols.SESSION_UUID + " = ? ",
+                new String[]{id.toString()}, "sessions"
+        );
+
+        try {
+            if (cursor.getCount() == 0) {
+                return null;
+            }
+            cursor.moveToFirst();
+            return cursor.getSession();
+        } finally{
+            cursor.close();
+        }
+    }
+
+    public void updateSession(Session session){
+        String uuidSessionString = session.getSessionId().toString();
+        //String uuidClientString = client.getClientId().toString();
+        ContentValues values = getSessionsContentValues(session);
+
+        mDatabase.update(SessionListTable.NAME, values,
+                SessionListTable.Cols.SESSION_UUID + " = ? ",
+                new String[] {uuidSessionString});
+    }
+
+    private static ContentValues getClientContentValues(Client client){
         ContentValues values = new ContentValues();
-        values.put(ClientListTable.Cols.UUID, client.getId().toString());
-        values.put(ClientListTable.Cols.CLIENTNAME, client.getName());
+        values.put(ClientListTable.Cols.UUID, client.getClientId().toString());
+        values.put(ClientListTable.Cols.CLIENT_NAME, client.getName());
 
         return values;
     }
 
-    private ClientCursorWrapper queryClients(String whereClause, String[] whereArgs){
-        Cursor cursor = mDatabase.query(
-                ClientListTable.NAME,
-                null, //Columns - null selects all columns
-                whereClause,
-                whereArgs,
-                null,   //groupBy
-                null,   //having
-                null    //orderBy
-        );
+    private static ContentValues getSessionsContentValues(Session session){
+        ContentValues values = new ContentValues();
+        values.put(SessionListTable.Cols.SESSION_UUID, session.getSessionId().toString());
+        values.put(SessionListTable.Cols.CLIENT_UUID, session.getClientId().toString());
+        values.put(SessionListTable.Cols.DATE, session.getDate().getTime());
+        values.put(SessionListTable.Cols.TITLE, session.getTitle());
+        values.put(SessionListTable.Cols.DESCRIPTION, session.getDescription());
+        values.put(SessionListTable.Cols.COMPLETED, session.isCompleted() ? 1 : 0);
 
+        return values;
+    }
+
+    private ClientCursorWrapper queryClientInformation(String whereClause, String[] whereArgs, String whichTable){
+        Cursor cursor = null;
+        if(whichTable == "client"){
+            cursor = mDatabase.query(
+                    ClientListTable.NAME,
+                    null, //Columns - null selects all columns
+                    whereClause,
+                    whereArgs,
+                    null,   //groupBy
+                    null,   //having
+                    null    //orderBy
+            );
+        } else if(whichTable == "session"){
+            cursor = mDatabase.query(
+                    SessionListTable.NAME,
+                    null, //Columns - null selects all columns
+                    whereClause,
+                    whereArgs,
+                    null,   //groupBy
+                    null,   //having
+                    null    //orderBy
+            );
+        }
         return new ClientCursorWrapper(cursor);
     }
 }
