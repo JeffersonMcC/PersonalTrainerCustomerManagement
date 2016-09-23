@@ -20,10 +20,11 @@ import java.util.List;
 /**
  * Created by Jeffrow on 9/5/2016.
  */
-public class ClientListFragment extends Fragment {
-    private static final String TAG = "ClientListFragment";
+public class CListFragment extends Fragment {
+    private static final String TAG = "CListFragment";
     private RecyclerView mClientRecyclerView;
     private ClientAdapter mAdapter;
+    private CListActivity mClientActivity = new CListActivity();
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -67,6 +68,9 @@ public class ClientListFragment extends Fragment {
                 Intent intent = ClientActivity.newIntent(getActivity(), client.getClientId());
                 startActivity(intent);
                 return true;
+            case R.id.menu_item_logout:
+                getActivity().finish();
+                //mClientActivity.taskDone();
             default:
                 return super.onOptionsItemSelected(item);
         }

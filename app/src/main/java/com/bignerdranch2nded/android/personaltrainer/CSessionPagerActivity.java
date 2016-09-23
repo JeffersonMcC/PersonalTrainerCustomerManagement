@@ -13,19 +13,17 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by Jeffrow on 9/21/2016.
+ * Created by Jeffrow on 9/23/2016.
  */
-public class SessionPagerActivity extends AppCompatActivity{
+public class CSessionPagerActivity extends AppCompatActivity {
     private static final String EXTRA_SESSION_ID = "com.bignerdranch2nded.android.personaltrainer.session_id";
-    private static final String EXTRA_CLIENT_ID = "com.bignerdranch2nded.android.persontrainer.client_id";
 
     private ViewPager mViewPager;
     private List<Session> mSessions;
 
-    public static Intent newIntent(Context packageContext, UUID sessionId /*, UUID clientId*/){
-        Intent intent = new Intent(packageContext, SessionPagerActivity.class);
-        intent.putExtra(EXTRA_SESSION_ID, sessionId);
-        /*intent.putExtra(EXTRA_CLIENT_ID, clientId);*/
+    public static Intent newIntent(Context packageContext, UUID sessionID){
+        Intent intent = new Intent(packageContext, CSessionPagerActivity.class);
+        intent.putExtra(EXTRA_SESSION_ID, sessionID);
         return intent;
     }
 
@@ -35,7 +33,6 @@ public class SessionPagerActivity extends AppCompatActivity{
         setContentView(R.layout.activity_session_pager);
 
         UUID sessionId = (UUID)getIntent().getSerializableExtra(EXTRA_SESSION_ID);
-        UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
 
         mViewPager = (ViewPager)findViewById(R.id.activity_session_view_pager);
 
@@ -45,7 +42,7 @@ public class SessionPagerActivity extends AppCompatActivity{
             @Override
             public Fragment getItem(int position) {
                 Session session = mSessions.get(position);
-                return CSessionFragment.newInstance(/*clientId,*/ session.getSessionId());
+                return CSessionFragment.newInstance(session.getSessionId());
             }
 
             @Override

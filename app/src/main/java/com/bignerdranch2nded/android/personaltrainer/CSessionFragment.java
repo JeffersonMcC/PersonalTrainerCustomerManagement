@@ -19,7 +19,7 @@ import java.util.UUID;
 /**
  * Created by Jeffrow on 9/21/2016.
  */
-public class ClientSessionFragment extends Fragment {
+public class CSessionFragment extends Fragment {
     private static final String ARG_CLIENT_ID = "client-id";
     private static final String ARG_SESSION_ID = "session-id";
     private static final String DIALOG_DATE = "DialogDate";
@@ -32,14 +32,14 @@ public class ClientSessionFragment extends Fragment {
     private EditText mDescriptionField;
     private CheckBox mCompletedCheckBox;
 
-    private static final String TAG = "ClientSessionFragment";
-    public static ClientSessionFragment newInstance(UUID sessionId /*UUID clientId*/){
+    private static final String TAG = "CSessionFragment";
+    public static CSessionFragment newInstance(UUID sessionId /*UUID clientId*/){
         Bundle args = new Bundle();
         args.putSerializable(ARG_SESSION_ID, sessionId);
         /*args.putSerializable(ARG_CLIENT_ID, clientId);*/
 
 
-        ClientSessionFragment fragment = new ClientSessionFragment();
+        CSessionFragment fragment = new CSessionFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -70,7 +70,7 @@ public class ClientSessionFragment extends Fragment {
             public void onClick(View v) {
                 FragmentManager manager = getFragmentManager();
                 DatePickerFragment dialog = DatePickerFragment.newInstance(new Date());
-                dialog.setTargetFragment(ClientSessionFragment.this, REQUEST_DATE);
+                dialog.setTargetFragment(CSessionFragment.this, REQUEST_DATE);
                 dialog.show(manager, DIALOG_DATE);
             }
         });

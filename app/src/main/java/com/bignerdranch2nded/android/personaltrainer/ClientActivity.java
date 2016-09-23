@@ -21,10 +21,7 @@ public class ClientActivity extends DoubleFragmentActivity{
 
     private static final String EXTRA_CLIENT_ID = "com.bignerdranch2nded.android.personaltrainer.client_id";
     private static final String EXTRA_FRAGMENT_ID = "com.bignerdranch2nded.android.personaltrainer.fragment_id";
-    private static int thirdFragId;
 
-    private ViewPager mClientViewPager;
-    private ViewPager mThirdFragViewPager;
     private List<Client> mClients;
     private static final int[] sThirdFragPages = {0, 1, 2, 3 ,4};
     private int thirdFragPos = 0;
@@ -45,65 +42,21 @@ public class ClientActivity extends DoubleFragmentActivity{
 
         UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
 
-
-        mClientViewPager = (ViewPager)findViewById(R.id.fragment_container_four);
-        mThirdFragViewPager = (ViewPager)findViewById(R.id.fragment_container_five);
-
-        mClients = ClientLab.get(this).getClients();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        mClientViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
-            @Override
-            public Fragment getItem(int position) {
-                Client client = mClients.get(position);
-                return ClientProfileFragment.newInstance(client.getClientId());
-            }
-
-            @Override
-            public int getCount() {
-                return mClients.size();
-            }
-        });
-
-        mThirdFragViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
-            @Override
-            public Fragment getItem(int position) {
-                return getThirdFragment(thirdFragPos);
-            }
-
-            @Override
-            public int getCount() {
-                return sThirdFragPages.length;
-            }
-        });
-
-        for(int i = 0; i < mClients.size(); i++){
-            if(mClients.get(i).getClientId().equals(clientId)){
-                mClientViewPager.setCurrentItem(i);
-                break;
-            }
-        }
-
-        for(int i = 0; i < sThirdFragPages.length; i++){
-            if(thirdFragPos == sThirdFragPages[i]){
-                mThirdFragViewPager.setCurrentItem(i);
-                break;
-            }
-        }
     }
 
     @Override
     protected Fragment createFirstFragment(){
-        return ClientProfileFragment.newInstance(getClientId());
+        return CProfileFragment.newInstance(getClientId());
     }
 
     @Override
     protected Fragment createSecondFragment(){
-        return ClientTabsFragment.newInstance();
+        return CTabsFragment.newInstance();
     }
 
     @Override
     protected Fragment createThirdFragment(){
-        return getThirdFragment(thirdFragId);
+        return getThirdFragment(0);
     }
 
     public UUID getClientId(){
@@ -114,19 +67,19 @@ public class ClientActivity extends DoubleFragmentActivity{
         Fragment thirdFragment = null;
         switch (fragId){
             case 0:    //sessions
-                thirdFragment = ClientSessionsListFragment.newInstance();
+                thirdFragment = CSessionsListFragment.newInstance();
                 break;
             case 1: //payment
-                thirdFragment = ClientPaymentFragment.newInstance();
+                thirdFragment = CPaymentFragment.newInstance();
                 break;
             case 2: //contact
                 thirdFragment = ClientContact.newInstance();
                 break;
             case 3: //add sessions
-                thirdFragment = ClientSessionsToAddSessionsFragment.newInstance();
+                thirdFragment = CSessionsListFragment.newInstance();
                 break;
             case 4: //receipt
-                thirdFragment = ClientPaymentToReceiptFragment.newInstance();
+                thirdFragment = CPaymentToReceiptFragment.newInstance();
         }
         return thirdFragment;
     }

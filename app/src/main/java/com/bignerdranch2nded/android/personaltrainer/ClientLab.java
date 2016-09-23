@@ -150,9 +150,9 @@ public class ClientLab {
         return values;
     }
 
-    private ClientCursorWrapper queryClientInformation(String whereClause, String[] whereArgs, String whichTable){
+    private ClientCursorWrapper queryClientInformation(String whereClause, String[] whereArgs, String tableChoice){
         Cursor cursor = null;
-        if(whichTable == "client"){
+        if(tableChoice == "client"){
             cursor = mDatabase.query(
                     ClientListTable.CLIENT_NAME,
                     null, //Columns - null selects all columns
@@ -162,7 +162,7 @@ public class ClientLab {
                     null,   //having
                     null    //orderBy
             );
-        } else if(whichTable == "session"){
+        } else if(tableChoice == "session"){
             cursor = mDatabase.query(
                     SessionListTable.SESSION_NAME,
                     null, //Columns - null selects all columns

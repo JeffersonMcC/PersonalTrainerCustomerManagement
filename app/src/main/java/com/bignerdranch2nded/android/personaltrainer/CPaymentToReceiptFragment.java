@@ -9,16 +9,15 @@ import android.view.ViewGroup;
 /**
  * Created by Jeffrow on 9/7/2016.
  */
-public class ClientSessionsToAddSessionsFragment extends Fragment {
+public class CPaymentToReceiptFragment extends Fragment {
 
-    public static ClientSessionsToAddSessionsFragment newInstance(){
-        return new ClientSessionsToAddSessionsFragment();
+    public static CPaymentToReceiptFragment newInstance(){
+        return new CPaymentToReceiptFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View v = inflater.inflate(R.layout.fragment_session, container, false);
-
+        View v = inflater.inflate(R.layout.fragment_client_payment_receipt, container, false);
         return v;
     }
 }

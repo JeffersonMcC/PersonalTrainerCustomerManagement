@@ -15,21 +15,21 @@ import java.util.UUID;
 /**
  * Created by Jeffrow on 9/9/2016.
  */
-public class ClientProfileFragment extends Fragment {
-    private static final String TAG = "ClientProfileFragment";
+public class CProfileFragment extends Fragment {
+    private static final String TAG = "CProfileFragment";
     private static final String ARG_CLIENT_ID = "client-id";
 
     private Client mClient;
 
     private EditText mNameField;
 
-    public static ClientProfileFragment newInstance(UUID clientId){
+    public static CProfileFragment newInstance(UUID clientId){
         Log.d(TAG, "newInstance() started");
         Bundle args = new Bundle();
 
         args.putSerializable(ARG_CLIENT_ID, clientId);
 
-        ClientProfileFragment fragment = new ClientProfileFragment();
+        CProfileFragment fragment = new CProfileFragment();
 
         fragment.setArguments(args);
 

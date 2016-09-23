@@ -1,10 +1,8 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,14 +13,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Jeffrow on 9/7/2016.
  */
-public class ClientSessionsListFragment extends Fragment {
-    public static final String TAG = "ClientSessionsListFragment";
+public class CSessionsListFragment extends Fragment {
+    public static final String TAG = "CSessionsListFragment";
 
     private RecyclerView mSessionRecyclerView;
     private SessionAdapter mAdapter;
@@ -32,8 +29,8 @@ public class ClientSessionsListFragment extends Fragment {
 
     private Button mAddSessionButton;
 
-    public static ClientSessionsListFragment newInstance(){
-        return new ClientSessionsListFragment();
+    public static CSessionsListFragment newInstance(){
+        return new CSessionsListFragment();
     }
 
     @Override
@@ -48,10 +45,10 @@ public class ClientSessionsListFragment extends Fragment {
         mAddSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager manager = getFragmentManager();
-                DatePickerFragment dialog = DatePickerFragment.newInstance(new Date());
-                dialog.setTargetFragment(ClientSessionsListFragment.this, REQUEST_DATE);
-                dialog.show(manager, DIALOG_DATE);
+                Session session = new Session();
+                ClientLab.get(getActivity()).addSession(session);
+                Intent intent = CSessionPagerActivity.newIntent(getActivity(), session.getSessionId());
+                startActivity(intent);
             }
         });
 
@@ -84,7 +81,6 @@ public class ClientSessionsListFragment extends Fragment {
         private CheckBox mCompletedCheckBox;
 
         private Session mSession;
-        private Client mClient;
 
         public SessionHolder(View itemView){
             super(itemView);

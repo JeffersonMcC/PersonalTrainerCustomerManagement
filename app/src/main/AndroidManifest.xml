@@ -18,12 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ClientListActivity"
+        <activity android:name=".CListActivity"
                   android:label="@string/client_list_page_name">
         </activity>
         <activity android:name=".ClientActivity"
                   android:label="@string/client_list_page_name"
-                  android:parentActivityName=".ClientListActivity">>
+                  android:parentActivityName=".CListActivity">
+        </activity>
+        <activity android:name=".CSessionPagerActivity"
+                  android:label="@string/client_page_name"
+                  android:parentActivityName=".ClientActivity">
+
         </activity>
     </application>
 

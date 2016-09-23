@@ -10,8 +10,8 @@ import android.widget.ImageView;
 /**
  * Created by Jeffrow on 9/9/2016.
  */
-public class ClientTabsFragment extends Fragment {
-    private static final String TAG = "ClientTabsFragment";
+public class CTabsFragment extends Fragment {
+    private static final String TAG = "CTabsFragment";
 
     private ImageView mSessionsImageView;
     private ImageView mPaymentImageView;
@@ -19,8 +19,8 @@ public class ClientTabsFragment extends Fragment {
 
     private Fragment mFragment;
 
-    public static ClientTabsFragment newInstance(){
-        return new ClientTabsFragment();
+    public static CTabsFragment newInstance(){
+        return new CTabsFragment();
     }
 
     @Override

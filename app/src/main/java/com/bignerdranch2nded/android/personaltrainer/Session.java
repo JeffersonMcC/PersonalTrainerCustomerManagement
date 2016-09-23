@@ -13,7 +13,7 @@ public class Session {
     private String mDescription;
     private Date mDate;
     private boolean mCompleted;
-    private Client mClient;
+    private Client mClient = new Client();
     private UUID clientId;
 
     private static final String TAG = "Session";
