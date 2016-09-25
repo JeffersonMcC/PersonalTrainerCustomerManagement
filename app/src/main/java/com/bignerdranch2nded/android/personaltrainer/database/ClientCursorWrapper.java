@@ -30,15 +30,13 @@ public class ClientCursorWrapper extends CursorWrapper{
     }
 
     public Session getSession(){
-        String uuidSessionString = getString(getColumnIndex(SessionListTable.Cols.SESSIONUUID));
-        String uuidClientString = getString(getColumnIndex(SessionListTable.Cols.CLIENTUUID));
+        String uuidSessionString = getString(getColumnIndex(SessionListTable.Cols.SESSION_UUID));
         long date = getLong(getColumnIndex(SessionListTable.Cols.DATE));
         String title = getString(getColumnIndex(SessionListTable.Cols.TITLE));
         String description = getString(getColumnIndex(SessionListTable.Cols.DESCRIPTION));
         int isCompleted = getInt(getColumnIndex(SessionListTable.Cols.COMPLETED));
 
         Session session = new Session(UUID.fromString(uuidSessionString));
-        session.setClientId(UUID.fromString(uuidClientString));
         session.setDate(new Date(date));
         session.setTitle(title);
         session.setDescription(description);

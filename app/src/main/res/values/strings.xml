@@ -27,8 +27,10 @@
     <string name="date_picker_title">Client\'s session date:</string>
     <string name="information_for_date_picker">Information about session:</string>
     <string name="credit_card_payment">Credit Card</string>
-    <string name="cash_payment">Cash</string>
+    <string name="cash_payment_label">Cash</string>
     <string name="add_contact">Add Contact</string>
+    <string name="phone_label_text_view">Phone</string>
+    <string name="email_label_text_view">Email</string>
     <string name="cancel_button">Cancel</string>
     <string name="ok_button">OK</string>
     <string name="print_receipt_label_text_view">Print</string>

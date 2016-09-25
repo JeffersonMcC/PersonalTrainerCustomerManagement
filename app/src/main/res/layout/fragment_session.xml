@@ -35,6 +35,7 @@
         android:layout_height="wrap_content"
         android:text="@string/session_description_label"
         style="?android:listSeparatorTextViewStyle"/>
+
     <EditText
         android:id="@+id/session_description_edit_text"
         android:layout_width="match_parent"
@@ -47,5 +48,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/session_completed_label"/>
-
 </LinearLayout>

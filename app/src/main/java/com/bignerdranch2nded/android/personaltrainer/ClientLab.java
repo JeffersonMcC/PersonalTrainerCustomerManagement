@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.bignerdranch2nded.android.personaltrainer.database.ClientBaseHelper;
 import com.bignerdranch2nded.android.personaltrainer.database.ClientCursorWrapper;
@@ -18,6 +19,7 @@ import java.util.UUID;
  * Created by Jeffrow on 9/5/2016.
  */
 public class ClientLab {
+    private static final String TAG = "ClientLab";
     private static ClientLab sClientLab;
 
     private Context mContext;
@@ -59,7 +61,7 @@ public class ClientLab {
 
     public Client getClient(UUID id){
         ClientCursorWrapper cursor = queryClientInformation(
-                ClientListTable.Cols.UUID + " = ?",
+                ClientListTable.Cols.UUID + " = ? ",
                 new String[]{id.toString()}, "client"
         );
 
@@ -105,7 +107,7 @@ public class ClientLab {
 
     public Session getSession(UUID id){
         ClientCursorWrapper cursor = queryClientInformation(
-                SessionListTable.Cols.SESSIONUUID + " = ? ",
+                SessionListTable.Cols.SESSION_UUID + " = ? ",
                 new String[]{id.toString()}, "sessions"
         );
 
@@ -126,8 +128,8 @@ public class ClientLab {
         ContentValues values = getSessionsContentValues(session);
 
         mDatabase.update(SessionListTable.SESSION_NAME, values,
-                SessionListTable.Cols.SESSIONUUID + " = ? ",
-                new String[] {uuidSessionString});
+                SessionListTable.Cols.SESSION_UUID + " = ?",
+                new String[]{uuidSessionString});
     }
 
     private static ContentValues getClientContentValues(Client client){
@@ -139,9 +141,9 @@ public class ClientLab {
     }
 
     private static ContentValues getSessionsContentValues(Session session){
+        Log.d(TAG, "getSessionsContentValues started");
         ContentValues values = new ContentValues();
-        values.put(SessionListTable.Cols.SESSIONUUID, session.getSessionId().toString());
-        values.put(SessionListTable.Cols.CLIENTUUID, session.getClientId().toString());
+        values.put(SessionListTable.Cols.SESSION_UUID, session.getSessionId().toString());
         values.put(SessionListTable.Cols.DATE, session.getDate().getTime());
         values.put(SessionListTable.Cols.TITLE, session.getTitle());
         values.put(SessionListTable.Cols.DESCRIPTION, session.getDescription());
@@ -163,6 +165,7 @@ public class ClientLab {
                     null    //orderBy
             );
         } else if(tableChoice == "session"){
+            Log.d(TAG, "the table choice is session");
             cursor = mDatabase.query(
                     SessionListTable.SESSION_NAME,
                     null, //Columns - null selects all columns

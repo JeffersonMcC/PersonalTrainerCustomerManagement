@@ -4,13 +4,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="16dp">
+    android:paddingRight="20dp"
+    android:paddingTop="6dp">
 
     <ImageButton
         android:id="@+id/phone_contact_image_button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:scaleType="fitXY"
         android:src="@drawable/phone_call"/>
 
@@ -19,21 +19,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="7dp"
         android:layout_toEndOf="@id/phone_contact_image_button"
         android:layout_toRightOf="@id/phone_contact_image_button"
         android:text="@string/phone_label_text_view"
         android:textStyle="bold"
+        android:textSize="15sp"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <ImageButton
         android:id="@+id/email_icon_image_button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@id/phone_contact_image_button"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="4dp"
         android:scaleType="fitXY"
         android:src="@drawable/e_mail_envelope"/>
 
@@ -47,6 +48,7 @@
         android:layout_toRightOf="@id/email_icon_image_button"
         android:text="@string/email_label_text_view"
         android:textStyle="bold"
+        android:textSize="15sp"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
 </RelativeLayout>

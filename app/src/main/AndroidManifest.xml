@@ -28,7 +28,6 @@
         <activity android:name=".CSessionPagerActivity"
                   android:label="@string/client_page_name"
                   android:parentActivityName=".ClientActivity">
-
         </activity>
     </application>
 

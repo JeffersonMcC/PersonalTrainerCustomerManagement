@@ -18,8 +18,8 @@ public class ClientDbSchema {
         public static final String SESSION_NAME = "date";
 
         public static final class Cols{
-            public static final String SESSIONUUID = "session uuid";
-            public static final String CLIENTUUID = "client uuid";
+            public static final String SESSION_UUID = "session uuid";
+            public static final String CLIENT_UUID = "client uuid";
             public static final String DATE = "date";
             public static final String TITLE = "title";
             public static final String DESCRIPTION = "description";

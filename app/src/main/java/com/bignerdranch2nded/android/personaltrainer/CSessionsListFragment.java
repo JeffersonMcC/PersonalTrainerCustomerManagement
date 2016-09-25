@@ -45,6 +45,7 @@ public class CSessionsListFragment extends Fragment {
         mAddSessionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "add session button clicked");
                 Session session = new Session();
                 ClientLab.get(getActivity()).addSession(session);
                 Intent intent = CSessionPagerActivity.newIntent(getActivity(), session.getSessionId());
@@ -101,7 +102,7 @@ public class CSessionsListFragment extends Fragment {
         @Override
         public void onClick(View v){
             Log.d(TAG, "Session list item has been clicked");
-            Intent intent = SessionPagerActivity.newIntent(getActivity(), mSession.getSessionId() /*, mClient.getClientId()*/);
+            Intent intent = CSessionPagerActivity.newIntent(getActivity(), mSession.getSessionId() /*, mClient.getClientId()*/);
             startActivity(intent);
         }
     }

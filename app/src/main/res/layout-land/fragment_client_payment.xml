@@ -5,12 +5,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:layout_marginTop="16dp">
+    android:paddingTop="6dp">
 
     <ImageButton
         android:id="@+id/credit_card_icon_image_button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:scaleType="fitXY"
         android:src="@drawable/credit_card"/>
 
@@ -19,21 +19,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:layout_toEndOf="@id/credit_card_icon_image_button"
         android:layout_toRightOf="@id/credit_card_icon_image_button"
         android:text="Credit card"
         android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:textSize="15sp"
+        android:textColor="#000000"/>
 
     <ImageButton
         android:id="@+id/cash_icon_image_view"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/credit_card_icon_image_button"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="7dp"
         android:scaleType="fitXY"
         android:src="@drawable/dollar_symbol"/>
 
@@ -42,12 +43,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/cash_icon_image_view"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/cash_icon_image_view"
         android:layout_toRightOf="@+id/cash_icon_image_view"
-        android:text="Cash"
+        android:text="@string/cash_payment_label"
         android:textStyle="bold"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:textSize="15sp"
+        android:textColor="#000000"/>
 
 </RelativeLayout>
 
