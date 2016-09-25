@@ -9,6 +9,7 @@
     <string name="password">welcome1</string>
     <string name="username_textview_label">Enter username:</string>
     <string name="password_textview_label">Enter password:</string>
+    <string name="log_off_dialog_title">Log off</string>
     <string name="client_profile_image_description">Client profile image</string>
     <string name="session_function_description">Workout Sessions</string>
     <string name="payment_function_description">Payment Methods</string>
