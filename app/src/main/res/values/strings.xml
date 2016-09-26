@@ -21,7 +21,7 @@
     <string name="session_history">Session History:</string>
     <string name="session_date_label">Date</string>
     <string name="session_title_label">Title</string>
-    <string name="session_title_hint">Enter a title for the session</string>
+    <string name="session_title_hint">Enter a brief title for the appointment</string>
     <string name="session_description_label">Description</string>
     <string name="session_description_hint">Enter a description for the session</string>
     <string name="session_completed_label">Completed</string>

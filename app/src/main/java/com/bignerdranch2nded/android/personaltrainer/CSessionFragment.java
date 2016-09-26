@@ -33,11 +33,9 @@ public class CSessionFragment extends Fragment {
     private CheckBox mCompletedCheckBox;
 
     private static final String TAG = "CSessionFragment";
-    public static CSessionFragment newInstance(UUID sessionId /*UUID clientId*/){
+    public static CSessionFragment newInstance(UUID sessionId){
         Bundle args = new Bundle();
         args.putSerializable(ARG_SESSION_ID, sessionId);
-        /*args.putSerializable(ARG_CLIENT_ID, clientId);*/
-
 
         CSessionFragment fragment = new CSessionFragment();
         fragment.setArguments(args);

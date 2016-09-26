@@ -2,6 +2,7 @@ package com.bignerdranch2nded.android.personaltrainer.database;
 
 import android.database.Cursor;
 import android.database.CursorWrapper;
+import android.util.Log;
 
 import com.bignerdranch2nded.android.personaltrainer.Client;
 import com.bignerdranch2nded.android.personaltrainer.Session;
@@ -15,6 +16,7 @@ import java.util.UUID;
  * Created by Jeffrow on 9/12/2016.
  */
 public class ClientCursorWrapper extends CursorWrapper{
+    public static final String TAG = "ClientCursorWrapper";
     public ClientCursorWrapper(Cursor cursor){
         super(cursor);
     }
@@ -30,7 +32,8 @@ public class ClientCursorWrapper extends CursorWrapper{
     }
 
     public Session getSession(){
-        String uuidSessionString = getString(getColumnIndex(SessionListTable.Cols.SESSION_UUID));
+        Log.d(TAG, "getSession started");
+        String uuidSessionString = getString(getColumnIndex(SessionListTable.Cols.UUID));
         long date = getLong(getColumnIndex(SessionListTable.Cols.DATE));
         String title = getString(getColumnIndex(SessionListTable.Cols.TITLE));
         String description = getString(getColumnIndex(SessionListTable.Cols.DESCRIPTION));
@@ -41,6 +44,7 @@ public class ClientCursorWrapper extends CursorWrapper{
         session.setTitle(title);
         session.setDescription(description);
         session.setCompleted(isCompleted != 0);
+        Log.d(TAG, "all session information has been attained");
 
         return session;
     }

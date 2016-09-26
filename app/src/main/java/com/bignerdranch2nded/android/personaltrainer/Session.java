@@ -1,5 +1,7 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
+import android.util.Log;
+
 import java.util.Date;
 import java.util.UUID;
 
@@ -32,6 +34,7 @@ public class Session {
     }
 
     public UUID getSessionId(){
+        Log.d(TAG, "getSessionId method called");
         return mId;
     }
 
