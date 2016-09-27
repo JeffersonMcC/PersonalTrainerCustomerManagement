@@ -15,7 +15,7 @@ public class CListActivity extends SingleFragmentActivity{
 
     @Override
     protected Fragment createFragment(){
-        return new CListFragment();
+        return new ClientListFragment();
     }
 
     public static Intent newIntent(Context packageContext, UUID userId){

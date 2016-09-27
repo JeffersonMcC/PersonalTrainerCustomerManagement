@@ -26,8 +26,8 @@ import java.util.List;
 /**
  * Created by Jeffrow on 9/5/2016.
  */
-public class CListFragment extends Fragment {
-    private static final String TAG = "CListFragment";
+public class ClientListFragment extends Fragment {
+    private static final String TAG = "ClientListFragment";
     private RecyclerView mClientRecyclerView;
     private ClientAdapter mAdapter;
     private CListActivity mClientActivity = new CListActivity();

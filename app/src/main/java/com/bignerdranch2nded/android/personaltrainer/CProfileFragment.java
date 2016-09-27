@@ -24,7 +24,6 @@ public class CProfileFragment extends Fragment {
     private EditText mNameField;
 
     public static CProfileFragment newInstance(UUID clientId){
-        Log.d(TAG, "newInstance() started");
         Bundle args = new Bundle();
 
         args.putSerializable(ARG_CLIENT_ID, clientId);

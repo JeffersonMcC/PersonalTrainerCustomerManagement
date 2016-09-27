@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Jeffrow on 9/7/2016.
@@ -21,16 +22,22 @@ import java.util.List;
 public class CSessionsListFragment extends Fragment {
     public static final String TAG = "CSessionsListFragment";
 
+    private static final String ARG_CLIENT_ID = "client-id";
+
     private RecyclerView mSessionRecyclerView;
     private SessionAdapter mAdapter;
-    private static final String DIALOG_DATE = "DialogDate";
 
     private static final int REQUEST_DATE = 0;
 
     private Button mAddSessionButton;
 
-    public static CSessionsListFragment newInstance(){
-        return new CSessionsListFragment();
+    public static CSessionsListFragment newInstance(UUID clientId){
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_CLIENT_ID, clientId);
+
+        CSessionsListFragment fragment = new CSessionsListFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -46,9 +53,11 @@ public class CSessionsListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "add session button clicked");
+                UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
                 Session session = new Session();
+                session.setClientId(clientId);
                 ClientLab.get(getActivity()).addSession(session);
-                Intent intent = CSessionPagerActivity.newIntent(getActivity(), session.getSessionId());
+                Intent intent = CSessionPagerActivity.newIntent(getActivity(), session.getSessionId(), session.getClientId());
                 startActivity(intent);
             }
         });
@@ -102,7 +111,7 @@ public class CSessionsListFragment extends Fragment {
         @Override
         public void onClick(View v){
             Log.d(TAG, "Session list item has been clicked");
-            Intent intent = CSessionPagerActivity.newIntent(getActivity(), mSession.getSessionId() /*, mClient.getClientId()*/);
+            Intent intent = CSessionPagerActivity.newIntent(getActivity(), mSession.getSessionId() , mSession.getClientId());
             startActivity(intent);
         }
     }

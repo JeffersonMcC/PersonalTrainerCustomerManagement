@@ -23,7 +23,7 @@ public class ClientActivity extends DoubleFragmentActivity{
     private static final String EXTRA_FRAGMENT_ID = "com.bignerdranch2nded.android.personaltrainer.fragment_id";
 
     private List<Client> mClients;
-    private static final int[] sThirdFragPages = {0, 1, 2, 3 ,4};
+    private static final int[] sThirdFragPages = {0, 1, 2, 3};
     private int thirdFragPos = 0;
 
     public static Intent newIntent(Context packageContext, UUID clientId){
@@ -39,9 +39,6 @@ public class ClientActivity extends DoubleFragmentActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-
-        UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
-
     }
 
     @Override
@@ -63,11 +60,11 @@ public class ClientActivity extends DoubleFragmentActivity{
         return (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
     }
 
-    public static Fragment getThirdFragment(int fragId){
+    public Fragment getThirdFragment(int fragId){
         Fragment thirdFragment = null;
         switch (fragId){
             case 0:    //sessions
-                thirdFragment = CSessionsListFragment.newInstance();
+                thirdFragment = CSessionsListFragment.newInstance(getClientId());
                 break;
             case 1: //payment
                 thirdFragment = CPaymentFragment.newInstance();
@@ -75,10 +72,7 @@ public class ClientActivity extends DoubleFragmentActivity{
             case 2: //contact
                 thirdFragment = ClientContact.newInstance();
                 break;
-            case 3: //add sessions
-                thirdFragment = CSessionsListFragment.newInstance();
-                break;
-            case 4: //receipt
+            case 3: //receipt
                 thirdFragment = CPaymentToReceiptFragment.newInstance();
         }
         return thirdFragment;

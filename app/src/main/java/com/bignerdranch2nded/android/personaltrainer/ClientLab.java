@@ -143,6 +143,7 @@ public class ClientLab {
     private static ContentValues getSessionsContentValues(Session session){
         ContentValues values = new ContentValues();
         values.put(SessionListTable.Cols.UUID, session.getSessionId().toString());
+        values.put(SessionListTable.Cols.CLIENT_UUID, session.getClientId().toString());
         values.put(SessionListTable.Cols.DATE, session.getDate().getTime());
         values.put(SessionListTable.Cols.TITLE, session.getTitle());
         values.put(SessionListTable.Cols.DESCRIPTION, session.getDescription());

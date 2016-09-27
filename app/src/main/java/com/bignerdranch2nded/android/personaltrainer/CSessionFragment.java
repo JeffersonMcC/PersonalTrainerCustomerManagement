@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -66,10 +67,11 @@ public class CSessionFragment extends Fragment {
         mDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager manager = getFragmentManager();
-                DatePickerFragment dialog = DatePickerFragment.newInstance(new Date());
-                dialog.setTargetFragment(CSessionFragment.this, REQUEST_DATE);
-                dialog.show(manager, DIALOG_DATE);
+                getActivity().onBackPressed();
+//                FragmentManager manager = getFragmentManager();
+//                DatePickerFragment dialog = DatePickerFragment.newInstance(new Date());
+//                dialog.setTargetFragment(CSessionFragment.this, REQUEST_DATE);
+//                dialog.show(manager, DIALOG_DATE);
             }
         });
 

@@ -15,7 +15,6 @@ public class Session {
     private String mDescription;
     private Date mDate;
     private boolean mCompleted;
-    private Client mClient = new Client();
     private UUID clientId;
 
     private static final String TAG = "Session";
@@ -29,17 +28,16 @@ public class Session {
         mDate = new Date();
     }
 
+    public void setClientId(UUID clientSpecificSession){
+        clientId = clientSpecificSession;
+    }
+
     public UUID getClientId(){
-        return mClient.getClientId();
+        return clientId;
     }
 
     public UUID getSessionId(){
-        Log.d(TAG, "getSessionId method called");
         return mId;
-    }
-
-    public void setClientId(UUID clientSpecificSession){
-        clientId = clientSpecificSession;
     }
 
     public Date getDate(){
