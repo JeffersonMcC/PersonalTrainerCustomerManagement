@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 /**
  * Created by Jeffrow on 9/7/2016.
  */
-public class CPaymentToReceiptFragment extends Fragment {
+public class CReceiptFragment extends Fragment {
 
-    public static CPaymentToReceiptFragment newInstance(){
-        return new CPaymentToReceiptFragment();
+    public static CReceiptFragment newInstance(){
+        return new CReceiptFragment();
     }
 
     @Override

@@ -25,7 +25,7 @@ public class LoginFragment extends Fragment {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = CListActivity.newIntent(getActivity(), UUID.randomUUID());
+                Intent intent = ClientListActivity.newIntent(getActivity(), UUID.randomUUID());
                 startActivity(intent);
             }
         });

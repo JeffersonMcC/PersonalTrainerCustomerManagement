@@ -1,12 +1,7 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +25,7 @@ public class ClientListFragment extends Fragment {
     private static final String TAG = "ClientListFragment";
     private RecyclerView mClientRecyclerView;
     private ClientAdapter mAdapter;
-    private CListActivity mClientActivity = new CListActivity();
+    private ClientListActivity mClientActivity = new ClientListActivity();
 
     private static final String DIALOG_LOG_OFF = "DialogLogOff";
 

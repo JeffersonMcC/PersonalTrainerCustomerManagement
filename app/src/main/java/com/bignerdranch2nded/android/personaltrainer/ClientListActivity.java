@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * Created by Jeffrow on 9/5/2016.
  */
-public class CListActivity extends SingleFragmentActivity{
+public class ClientListActivity extends SingleFragmentActivity{
 
     private static final String EXTRA_USER_ID = "com.bignerdranch2nded.android.personaltrainer";
 
@@ -19,7 +19,7 @@ public class CListActivity extends SingleFragmentActivity{
     }
 
     public static Intent newIntent(Context packageContext, UUID userId){
-        Intent i = new Intent(packageContext, CListActivity.class);
+        Intent i = new Intent(packageContext, ClientListActivity.class);
 
         i.putExtra(EXTRA_USER_ID, userId);
 

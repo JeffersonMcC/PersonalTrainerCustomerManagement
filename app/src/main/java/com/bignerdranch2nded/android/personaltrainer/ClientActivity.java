@@ -5,9 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 
 import java.util.List;
 import java.util.UUID;
@@ -73,7 +71,7 @@ public class ClientActivity extends DoubleFragmentActivity{
                 thirdFragment = ClientContact.newInstance();
                 break;
             case 3: //receipt
-                thirdFragment = CPaymentToReceiptFragment.newInstance();
+                thirdFragment = CReceiptFragment.newInstance();
         }
         return thirdFragment;
     }
