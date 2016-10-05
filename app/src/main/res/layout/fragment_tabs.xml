@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="2dp"
+    android:background="#a2d4ff">
+
+    <RelativeLayout
+        android:id="@+id/session_tab_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_margin="1dp"
+        android:layout_weight="1"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/sessions_icon_label_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/session_icon_label"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/sessions_icon_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:clickable="false"
+            android:contentDescription="@string/session_function_description"
+            android:padding="5dp"
+            android:src="@drawable/calendar"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/payment_tab_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_margin="1dp"
+        android:layout_weight="1"
+        android:background="#fff">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_icon_label"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/payment_icon_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:contentDescription="@string/payment_function_description"
+            android:padding="5dp"
+            android:src="@drawable/payment_method"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contact_tab_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_margin="1dp"
+        android:layout_weight="1"
+        android:background="#fff">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_icon_label"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/contact_icon_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:contentDescription="@string/contact_function_description"
+            android:padding="5dp"
+            android:src="@drawable/phone_call"/>
+
+    </RelativeLayout>
+</LinearLayout>
+
+
+

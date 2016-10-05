@@ -11,6 +11,7 @@
     <string name="password_textview_label">Enter password:</string>
     <string name="log_off_dialog_title">Log off</string>
     <string name="client_profile_image_description">Client profile image</string>
+    <string name="client_name_hint">Enter the client\'s name</string>
     <string name="session_function_description">Workout Sessions</string>
     <string name="payment_function_description">Payment Methods</string>
     <string name="contact_function_description">Contact Methods</string>

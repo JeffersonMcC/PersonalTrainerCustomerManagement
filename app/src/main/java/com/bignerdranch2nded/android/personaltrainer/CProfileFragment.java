@@ -1,6 +1,11 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,7 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
+import java.io.File;
 import java.util.UUID;
 
 /**
@@ -19,9 +27,15 @@ public class CProfileFragment extends Fragment {
     private static final String TAG = "CProfileFragment";
     private static final String ARG_CLIENT_ID = "client-id";
 
+    private static final int REQUEST_PHOTO = 2;
+
     private Client mClient;
 
     private EditText mNameField;
+    private ImageButton mPhotoButton;
+    private ImageView mPhotoView;
+
+    private File mPhotoFile;
 
     public static CProfileFragment newInstance(UUID clientId){
         Bundle args = new Bundle();
@@ -42,6 +56,8 @@ public class CProfileFragment extends Fragment {
         UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
 
         mClient = ClientLab.get(getActivity()).getClient(clientId);
+
+        mPhotoFile = ClientLab.get(getActivity()).getPhotoFile(mClient);
     }
 
     @Override
@@ -73,6 +89,47 @@ public class CProfileFragment extends Fragment {
             }
         });
 
+        PackageManager packageManager = getActivity().getPackageManager();
+
+        mPhotoButton = (ImageButton)v.findViewById(R.id.client_camera_button);
+        final Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        boolean canTakePhoto = mPhotoFile != null && captureImage.resolveActivity(packageManager) != null;
+        mPhotoButton.setEnabled(canTakePhoto);
+
+        if(canTakePhoto){
+            Log.d(TAG, "I am able to take a photo");
+            Uri uri = Uri.fromFile(mPhotoFile);
+            captureImage.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+        }
+
+        mPhotoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(captureImage, REQUEST_PHOTO);
+            }
+        });
+
+        mPhotoView = (ImageView)v.findViewById(R.id.client_photo);
+        updatePhotoView();
+
         return v;
+    }
+
+    private void updatePhotoView(){
+        if(mPhotoFile == null || !mPhotoFile.exists()){
+            mPhotoView.setImageDrawable(null);
+        } else{
+            Bitmap bitmap = PictureUtils.getScaledBitmap(mPhotoFile.getPath(), getActivity());
+            mClient.setBitMap(bitmap);
+            mPhotoView.setImageBitmap(bitmap);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode == REQUEST_PHOTO){
+            updatePhotoView();
+        }
     }
 }

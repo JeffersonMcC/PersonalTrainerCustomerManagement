@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 import android.util.Log;
 
 import com.bignerdranch2nded.android.personaltrainer.database.ClientBaseHelper;
@@ -11,6 +12,7 @@ import com.bignerdranch2nded.android.personaltrainer.database.ClientCursorWrappe
 import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.ClientListTable;
 import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.SessionListTable;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -76,6 +78,17 @@ public class ClientLab {
         }
     }
 
+    public File getPhotoFile(Client client){
+        Log.d(TAG, "getPhotoFile started");
+        File externalFilesDir = mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
+        if(externalFilesDir == null){
+            return null;
+        }
+
+        return new File(externalFilesDir, client.getPhotoFilename());
+    }
+
     public void updateClient(Client client){
         String uuidString = client.getClientId().toString();
         ContentValues values = getClientContentValues(client);
@@ -136,6 +149,7 @@ public class ClientLab {
         ContentValues values = new ContentValues();
         values.put(ClientListTable.Cols.UUID, client.getClientId().toString());
         values.put(ClientListTable.Cols.NAME, client.getName());
+        values.put(ClientListTable.Cols.PHOTO, BitMapConversion.BitMapToString(client.getBitMap()));
 
         return values;
     }

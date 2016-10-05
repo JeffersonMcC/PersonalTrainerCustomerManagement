@@ -10,7 +10,7 @@ public class ClientDbSchema {
         public static final class Cols{
             public static final String UUID = "uuid";
             public static final String NAME = "name";
-            public static final String CLIENT_IMAGE = "picture";
+            public static final String PHOTO = "picture";
         }
     }
 

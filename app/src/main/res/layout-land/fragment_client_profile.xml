@@ -9,26 +9,21 @@
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true">
 
+        <ImageButton
+            android:id="@+id/client_camera_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@android:drawable/ic_menu_camera"/>
+
         <ImageView
             android:id="@+id/client_photo"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_margin="3dp"
+            android:layout_margin="6dp"
+            android:layout_toRightOf="@id/client_camera_button"
             android:contentDescription="@string/client_profile_image_description"
-            android:scaleType="centerInside"
-            android:cropToPadding="true"
-            android:background="#a2d4ff"/>
-
-        <ImageButton
-            android:id="@+id/client_camera_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@android:drawable/ic_menu_camera"
-            android:layout_below="@id/client_photo"
-            android:layout_alignLeft="@id/client_photo"
-            android:layout_alignStart="@id/client_photo"
-            android:layout_alignRight="@id/client_photo"
-            android:layout_alignEnd="@id/client_photo"/>
+            android:src="@drawable/user"/>
 
         <EditText
             android:id="@+id/client_name"

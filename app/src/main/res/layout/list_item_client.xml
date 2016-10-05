@@ -5,21 +5,21 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp">
     <ImageView
-        android:id="@+id/list_item_client_profile_image_text_view"
-        android:scaleType="fitXY"
+        android:id="@+id/list_item_profile_image"
+        android:scaleType="centerInside"
         android:layout_width="60dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+        android:cropToPadding="true"
         android:paddingRight="8dp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/user"/>
+        android:layout_alignParentStart="true"/>
 
     <TextView
         android:id="@+id/list_item_client_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/list_item_client_profile_image_text_view"
-        android:layout_toEndOf="@id/list_item_client_profile_image_text_view"
+        android:layout_toRightOf="@+id/list_item_profile_image"
+        android:layout_toEndOf="@id/list_item_profile_image"
         tools:text="Client name"/>
 
     <TextView
@@ -29,7 +29,7 @@
         android:paddingTop="8dp"
         tools:text="Date of next session: 9/6/16"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/list_item_client_profile_image_text_view"
-        android:layout_toEndOf="@+id/list_item_client_profile_image_text_view"
+        android:layout_toRightOf="@+id/list_item_profile_image"
+        android:layout_toEndOf="@+id/list_item_profile_image"
         android:layout_below="@id/list_item_client_name_text_view"/>
 </RelativeLayout>

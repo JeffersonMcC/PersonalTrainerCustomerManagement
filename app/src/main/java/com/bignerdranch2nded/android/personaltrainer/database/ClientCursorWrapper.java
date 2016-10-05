@@ -2,8 +2,8 @@ package com.bignerdranch2nded.android.personaltrainer.database;
 
 import android.database.Cursor;
 import android.database.CursorWrapper;
-import android.util.Log;
 
+import com.bignerdranch2nded.android.personaltrainer.BitMapConversion;
 import com.bignerdranch2nded.android.personaltrainer.Client;
 import com.bignerdranch2nded.android.personaltrainer.Session;
 import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.ClientListTable;
@@ -24,9 +24,11 @@ public class ClientCursorWrapper extends CursorWrapper{
     public Client getClient(){
         String uuidString = getString(getColumnIndex(ClientListTable.Cols.UUID));
         String clientName = getString(getColumnIndex(ClientListTable.Cols.NAME));
+        String clientPhoto = getString(getColumnIndex(ClientListTable.Cols.PHOTO));
 
         Client client = new Client(UUID.fromString(uuidString));
         client.setName(clientName);
+        client.setBitMap(BitMapConversion.StringToBitMap(clientPhoto));
 
         return client;
     }

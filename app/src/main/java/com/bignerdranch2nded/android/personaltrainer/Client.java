@@ -1,7 +1,9 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
+import android.graphics.Bitmap;
 import android.util.Log;
 
+import java.io.File;
 import java.util.Date;
 import java.util.UUID;
 
@@ -15,6 +17,8 @@ public class Client {
     private String mDrawableName;
     private int profileImageResourceId;
     private Date mSessionDate = new Date();
+
+    private Bitmap mClientPhoto;
 
     public static final String TAG = "Client";
 
@@ -41,4 +45,15 @@ public class Client {
         return mName;
     }
 
+    public String getPhotoFilename(){
+        return "IMG_" + getClientId().toString() + ".jpg";
+    }
+
+    public void setBitMap(Bitmap bm){
+        mClientPhoto =  bm;
+    }
+
+    public Bitmap getBitMap(){
+        return mClientPhoto;
+    }
 }

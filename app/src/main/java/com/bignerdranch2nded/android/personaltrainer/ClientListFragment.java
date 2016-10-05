@@ -1,6 +1,7 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -28,6 +30,8 @@ public class ClientListFragment extends Fragment {
     private ClientListActivity mClientActivity = new ClientListActivity();
 
     private static final String DIALOG_LOG_OFF = "DialogLogOff";
+
+    private File mPhotoFile;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,7 +107,7 @@ public class ClientListFragment extends Fragment {
             super(itemView);
             itemView.setOnClickListener(this);
 
-            mProfileImageView = (ImageView) itemView.findViewById(R.id.list_item_client_profile_image_text_view);
+            mProfileImageView = (ImageView) itemView.findViewById(R.id.list_item_profile_image);
             mNameTextView = (TextView) itemView.findViewById(R.id.list_item_client_name_text_view);
             mNextSessionDateTextView = (TextView) itemView.findViewById(R.id.list_item_client_next_session_date_text_view);
         }
@@ -112,7 +116,8 @@ public class ClientListFragment extends Fragment {
             mClient = client;
             mNameTextView.setText(mClient.getName());
             //mNextSessionDateTextView.setText(mClient.getDate().toString());
-            //mProfileImageView.setImageDrawable(mClient.getProfileImage);
+            Bitmap clientPhoto = mClient.getBitMap();
+            mProfileImageView.setImageBitmap(clientPhoto);
         }
 
         @Override
