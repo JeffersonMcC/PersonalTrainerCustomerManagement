@@ -18,6 +18,8 @@ public class Client {
     private int profileImageResourceId;
     private Date mSessionDate = new Date();
 
+    private PictureUtils mPictureUtils = new PictureUtils();
+
     private Bitmap mClientPhoto;
 
     public static final String TAG = "Client";
@@ -59,10 +61,11 @@ public class Client {
 
     public Bitmap getBitMap(){
         Log.d(TAG, "getBitMap started");
-        if(mClientPhoto == null){
-            Log.d(TAG, "mClientPhoto is empty");
-            return mClientPhoto;
-        }
+
         return mClientPhoto;
+    }
+
+    public String getStringBitMap(){
+        return mPictureUtils.BitMapToString(mClientPhoto);
     }
 }

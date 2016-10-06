@@ -3,9 +3,8 @@ package com.bignerdranch2nded.android.personaltrainer.database;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 import android.graphics.Bitmap;
-import android.util.Log;
 
-import com.bignerdranch2nded.android.personaltrainer.BitMapConversion;
+import com.bignerdranch2nded.android.personaltrainer.PictureUtils;
 import com.bignerdranch2nded.android.personaltrainer.Client;
 import com.bignerdranch2nded.android.personaltrainer.Session;
 import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.ClientListTable;
@@ -19,6 +18,9 @@ import java.util.UUID;
  */
 public class ClientCursorWrapper extends CursorWrapper{
     public static final String TAG = "ClientCursorWrapper";
+
+    private PictureUtils mPictureUtils = new PictureUtils();
+
     public ClientCursorWrapper(Cursor cursor){
         super(cursor);
     }
@@ -34,7 +36,7 @@ public class ClientCursorWrapper extends CursorWrapper{
             return client;
         } else{
             try{
-                Bitmap bm = BitMapConversion.StringToBitMap(clientPhoto);
+                Bitmap bm = mPictureUtils.StringToBitMap(clientPhoto);
                 client.setBitMap(bm);
             } catch (Exception e){
                 e.getMessage();

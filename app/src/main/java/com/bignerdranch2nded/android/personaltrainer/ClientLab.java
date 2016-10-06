@@ -148,10 +148,8 @@ public class ClientLab {
     private static ContentValues getClientContentValues(Client client){
         ContentValues values = new ContentValues();
         values.put(ClientListTable.Cols.UUID, client.getClientId().toString());
-        Log.d(TAG, "getName about to be called");
         values.put(ClientListTable.Cols.NAME, client.getName());
-        Log.d(TAG, "getBitMap about to be called");
-        values.put(ClientListTable.Cols.PHOTO, BitMapConversion.BitMapToString(client.getBitMap()));
+        values.put(ClientListTable.Cols.PHOTO, client.getStringBitMap());
 
         return values;
     }

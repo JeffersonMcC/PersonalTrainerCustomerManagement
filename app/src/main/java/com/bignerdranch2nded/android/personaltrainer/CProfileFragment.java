@@ -9,7 +9,6 @@ import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,6 +36,8 @@ public class CProfileFragment extends Fragment {
 
     private File mPhotoFile;
 
+    private PictureUtils mPictureUtils;
+
     public static CProfileFragment newInstance(UUID clientId){
         Bundle args = new Bundle();
 
@@ -55,7 +56,6 @@ public class CProfileFragment extends Fragment {
         UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
 
         mClient = ClientLab.get(getActivity()).getClient(clientId);
-        Log.d(TAG, "getPhotoFile about to be called");
         mPhotoFile = ClientLab.get(getActivity()).getPhotoFile(mClient);
     }
 
@@ -79,7 +79,6 @@ public class CProfileFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.d(TAG, "setName about to be called");
                 mClient.setName(charSequence.toString());
             }
 
@@ -98,7 +97,6 @@ public class CProfileFragment extends Fragment {
         mPhotoButton.setEnabled(canTakePhoto);
 
         if(canTakePhoto){
-            Log.d(TAG, "I am able to take a photo");
             Uri uri = Uri.fromFile(mPhotoFile);
             captureImage.putExtra(MediaStore.EXTRA_OUTPUT, uri);
         }
@@ -122,7 +120,6 @@ public class CProfileFragment extends Fragment {
         } else{
             Bitmap bitmap = PictureUtils.getScaledBitmap(mPhotoFile.getPath(), getActivity());
             mClient.setBitMap(bitmap);
-            Log.d(TAG, "setBitMap called");
             mPhotoView.setImageBitmap(bitmap);
         }
     }
