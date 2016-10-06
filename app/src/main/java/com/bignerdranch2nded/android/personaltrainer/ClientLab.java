@@ -79,7 +79,6 @@ public class ClientLab {
     }
 
     public File getPhotoFile(Client client){
-        Log.d(TAG, "getPhotoFile started");
         File externalFilesDir = mContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
 
         if(externalFilesDir == null){

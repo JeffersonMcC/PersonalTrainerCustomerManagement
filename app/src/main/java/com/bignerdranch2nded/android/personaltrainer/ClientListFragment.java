@@ -1,12 +1,14 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -113,9 +115,16 @@ public class ClientListFragment extends Fragment {
 
         public void bindClient(Client client) {
             mClient = client;
+            String name = mClient.getName();
+            Log.d(TAG, "Name: " + name);
             mNameTextView.setText(mClient.getName());
+
+            mPhotoFile = ClientLab.get(getActivity()).getPhotoFile(mClient);
+            Bitmap bitmap = PictureUtils.getScaledBitmap(mPhotoFile.getPath(), getActivity());
+            mClient.setClientPhoto(bitmap);
+
+            mProfileImageView.setImageBitmap(mClient.getClientPhoto());
             //mNextSessionDateTextView.setText(mClient.getDate().toString());
-            mProfileImageView.setImageBitmap(client.getBitMap());
         }
 
         @Override

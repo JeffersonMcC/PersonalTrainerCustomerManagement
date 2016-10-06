@@ -40,12 +40,10 @@ public class Client {
     }
 
     public void setName(String name){
-        Log.d(TAG, "setName started");
         mName = name;
     }
 
     public String getName(){
-        Log.d(TAG, "getName started");
 
         return mName;
     }
@@ -54,13 +52,13 @@ public class Client {
         return "IMG_" + getClientId().toString() + ".jpg";
     }
 
-    public void setBitMap(Bitmap bm){
-        Log.d(TAG, "setBitMap started");
+    public void setClientPhoto(Bitmap bm){
+        Log.d(TAG, "setClientPhoto started");
         mClientPhoto =  bm;
     }
 
-    public Bitmap getBitMap(){
-        Log.d(TAG, "getBitMap started");
+    public Bitmap getClientPhoto(){
+        Log.d(TAG, "getClientPhoto started");
 
         return mClientPhoto;
     }

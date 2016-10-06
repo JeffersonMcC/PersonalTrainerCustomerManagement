@@ -36,8 +36,6 @@ public class CProfileFragment extends Fragment {
 
     private File mPhotoFile;
 
-    private PictureUtils mPictureUtils;
-
     public static CProfileFragment newInstance(UUID clientId){
         Bundle args = new Bundle();
 
@@ -62,6 +60,7 @@ public class CProfileFragment extends Fragment {
     @Override
     public void onPause(){
         super.onPause();
+        mClient.setClientPhoto(getBitMap());
         ClientLab.get(getActivity()).updateClient(mClient);
     }
 
@@ -118,9 +117,7 @@ public class CProfileFragment extends Fragment {
         if(mPhotoFile == null || !mPhotoFile.exists()){
             mPhotoView.setImageDrawable(null);
         } else{
-            Bitmap bitmap = PictureUtils.getScaledBitmap(mPhotoFile.getPath(), getActivity());
-            mClient.setBitMap(bitmap);
-            mPhotoView.setImageBitmap(bitmap);
+            mPhotoView.setImageBitmap(getBitMap());
         }
     }
 
@@ -129,5 +126,10 @@ public class CProfileFragment extends Fragment {
         if(requestCode == REQUEST_PHOTO){
             updatePhotoView();
         }
+    }
+
+    private Bitmap getBitMap(){
+        Bitmap bitmap = PictureUtils.getScaledBitmap(mPhotoFile.getPath(), getActivity());
+        return bitmap;
     }
 }

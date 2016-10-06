@@ -37,7 +37,7 @@ public class ClientCursorWrapper extends CursorWrapper{
         } else{
             try{
                 Bitmap bm = mPictureUtils.StringToBitMap(clientPhoto);
-                client.setBitMap(bm);
+                client.setClientPhoto(bm);
             } catch (Exception e){
                 e.getMessage();
                 return client;
