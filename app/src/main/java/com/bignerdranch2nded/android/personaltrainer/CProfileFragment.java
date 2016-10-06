@@ -80,6 +80,7 @@ public class CProfileFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d(TAG, "setName about to be called");
                 mClient.setName(charSequence.toString());
             }
 
@@ -121,7 +122,9 @@ public class CProfileFragment extends Fragment {
             mPhotoView.setImageDrawable(null);
         } else{
             Bitmap bitmap = PictureUtils.getScaledBitmap(mPhotoFile.getPath(), getActivity());
-            mClient.setBitMap(bitmap);
+            //mClient.setBitMap(bitmap);
+            ClientLab.get(getActivity()).setBitMap(bitmap);
+            Log.d(TAG, "setBitMap called");
             mPhotoView.setImageBitmap(bitmap);
         }
     }

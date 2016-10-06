@@ -11,7 +11,7 @@ import com.bignerdranch2nded.android.personaltrainer.database.ClientDbSchema.Ses
  * Created by Jeffrow on 9/12/2016.
  */
 public class ClientBaseHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 2;
+    private static final int VERSION = 1;
     private static final String DATABASE_NAME = "clientBase.db";
 
     public ClientBaseHelper(Context context) {
@@ -23,8 +23,8 @@ public class ClientBaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table " + ClientListTable.CLIENT_NAME + "(" +
                 " _id integer primary key autoincrement, " +
                 ClientListTable.Cols.UUID + ", " +
-                ClientListTable.Cols.NAME + ", " +
-                ClientListTable.Cols.PHOTO + ")"
+                ClientListTable.Cols.NAME + /* ", " +
+                ClientListTable.Cols.PHOTO  +*/ ")"
         );
 
         db.execSQL("create table " + SessionListTable.SESSION_NAME + "(" +

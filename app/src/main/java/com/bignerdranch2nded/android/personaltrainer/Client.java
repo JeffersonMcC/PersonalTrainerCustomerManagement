@@ -38,10 +38,13 @@ public class Client {
     }
 
     public void setName(String name){
+        Log.d(TAG, "setName started");
         mName = name;
     }
 
     public String getName(){
+        Log.d(TAG, "getName started");
+
         return mName;
     }
 
@@ -50,10 +53,16 @@ public class Client {
     }
 
     public void setBitMap(Bitmap bm){
+        Log.d(TAG, "setBitMap started");
         mClientPhoto =  bm;
     }
 
     public Bitmap getBitMap(){
+        Log.d(TAG, "getBitMap started");
+        if(mClientPhoto == null){
+            Log.d(TAG, "mClientPhoto is empty");
+            return mClientPhoto;
+        }
         return mClientPhoto;
     }
 }

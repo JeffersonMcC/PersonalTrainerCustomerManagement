@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.os.Environment;
 import android.util.Log;
 
@@ -26,6 +27,8 @@ public class ClientLab {
 
     private Context mContext;
     private SQLiteDatabase mDatabase;
+
+    private Bitmap mClientPhoto;
 
     public static ClientLab get(Context context){
         if(sClientLab == null){
@@ -148,8 +151,10 @@ public class ClientLab {
     private static ContentValues getClientContentValues(Client client){
         ContentValues values = new ContentValues();
         values.put(ClientListTable.Cols.UUID, client.getClientId().toString());
+        Log.d(TAG, "getName about to be called");
         values.put(ClientListTable.Cols.NAME, client.getName());
-        values.put(ClientListTable.Cols.PHOTO, BitMapConversion.BitMapToString(client.getBitMap()));
+        Log.d(TAG, "getBitMap about to be called");
+        //values.put(ClientListTable.Cols.PHOTO, BitMapConversion.BitMapToString(client.getBitMap()));
 
         return values;
     }
@@ -190,5 +195,19 @@ public class ClientLab {
             );
         }
         return new ClientCursorWrapper(cursor);
+    }
+
+    public void setBitMap(Bitmap bm){
+        Log.d(TAG, "setBitMap started");
+        mClientPhoto =  bm;
+    }
+
+    public Bitmap getBitMap(){
+        Log.d(TAG, "getBitMap started");
+        if(mClientPhoto == null){
+            Log.d(TAG, "mClientPhoto is empty");
+            return mClientPhoto;
+        }
+        return mClientPhoto;
     }
 }

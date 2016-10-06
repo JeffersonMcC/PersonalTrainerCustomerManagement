@@ -116,8 +116,7 @@ public class ClientListFragment extends Fragment {
             mClient = client;
             mNameTextView.setText(mClient.getName());
             //mNextSessionDateTextView.setText(mClient.getDate().toString());
-            Bitmap clientPhoto = mClient.getBitMap();
-            mProfileImageView.setImageBitmap(clientPhoto);
+            Bitmap clientPhoto = ClientLab.get(getActivity()).getBitMap();
         }
 
         @Override
