@@ -2,6 +2,7 @@ package com.bignerdranch2nded.android.personaltrainer.database;
 
 import android.database.Cursor;
 import android.database.CursorWrapper;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.bignerdranch2nded.android.personaltrainer.BitMapConversion;
@@ -25,13 +26,21 @@ public class ClientCursorWrapper extends CursorWrapper{
     public Client getClient(){
         String uuidString = getString(getColumnIndex(ClientListTable.Cols.UUID));
         String clientName = getString(getColumnIndex(ClientListTable.Cols.NAME));
-        //String clientPhoto = getString(getColumnIndex(ClientListTable.Cols.PHOTO));
+        String clientPhoto = getString(getColumnIndex(ClientListTable.Cols.PHOTO));
 
         Client client = new Client(UUID.fromString(uuidString));
-        Log.d(TAG, "setName about to be called");
         client.setName(clientName);
-        Log.d(TAG, "setBitMap about to be called");
-        //client.setBitMap(BitMapConversion.StringToBitMap(clientPhoto));
+        if(clientPhoto == " "){
+            return client;
+        } else{
+            try{
+                Bitmap bm = BitMapConversion.StringToBitMap(clientPhoto);
+                client.setBitMap(bm);
+            } catch (Exception e){
+                e.getMessage();
+                return client;
+            }
+        }
 
         return client;
     }

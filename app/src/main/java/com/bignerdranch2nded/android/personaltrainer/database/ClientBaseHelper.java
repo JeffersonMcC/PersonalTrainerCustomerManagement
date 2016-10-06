@@ -23,8 +23,8 @@ public class ClientBaseHelper extends SQLiteOpenHelper {
         db.execSQL("create table " + ClientListTable.CLIENT_NAME + "(" +
                 " _id integer primary key autoincrement, " +
                 ClientListTable.Cols.UUID + ", " +
-                ClientListTable.Cols.NAME + /* ", " +
-                ClientListTable.Cols.PHOTO  +*/ ")"
+                ClientListTable.Cols.NAME +  ", " +
+                ClientListTable.Cols.PHOTO  + ")"
         );
 
         db.execSQL("create table " + SessionListTable.SESSION_NAME + "(" +

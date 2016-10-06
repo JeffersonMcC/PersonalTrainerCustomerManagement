@@ -1,7 +1,6 @@
 package com.bignerdranch2nded.android.personaltrainer;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -116,7 +115,7 @@ public class ClientListFragment extends Fragment {
             mClient = client;
             mNameTextView.setText(mClient.getName());
             //mNextSessionDateTextView.setText(mClient.getDate().toString());
-            Bitmap clientPhoto = ClientLab.get(getActivity()).getBitMap();
+            mProfileImageView.setImageBitmap(client.getBitMap());
         }
 
         @Override

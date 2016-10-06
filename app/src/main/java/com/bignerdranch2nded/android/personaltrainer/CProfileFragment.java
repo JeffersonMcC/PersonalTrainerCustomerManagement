@@ -52,11 +52,10 @@ public class CProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
 
         mClient = ClientLab.get(getActivity()).getClient(clientId);
-
+        Log.d(TAG, "getPhotoFile about to be called");
         mPhotoFile = ClientLab.get(getActivity()).getPhotoFile(mClient);
     }
 
@@ -122,8 +121,7 @@ public class CProfileFragment extends Fragment {
             mPhotoView.setImageDrawable(null);
         } else{
             Bitmap bitmap = PictureUtils.getScaledBitmap(mPhotoFile.getPath(), getActivity());
-            //mClient.setBitMap(bitmap);
-            ClientLab.get(getActivity()).setBitMap(bitmap);
+            mClient.setBitMap(bitmap);
             Log.d(TAG, "setBitMap called");
             mPhotoView.setImageBitmap(bitmap);
         }
