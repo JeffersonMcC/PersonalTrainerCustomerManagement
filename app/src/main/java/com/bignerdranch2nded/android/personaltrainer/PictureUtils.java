@@ -53,7 +53,6 @@ public class PictureUtils {
     // http://stackoverflow.com/questions/13562429/how-many-ways-to-convert-bitmap-to-string-and-vice-versa
     public String BitMapToString(final Bitmap bitmap){
         if(bitmap == null){
-            Log.d(TAG, "BitMapToString returning an empty string");
             return " ";
         } else{
             AsyncTask.execute(new Runnable() {
@@ -67,14 +66,12 @@ public class PictureUtils {
                     temp = Base64.encodeToString(b, Base64.DEFAULT);
                 }
             });
-            Log.d(TAG, "BitMapToString returning a bitmap string");
             return temp;
         }
     }
 
     public Bitmap StringToBitMap(final String encodedString){
         if(encodedString == " " || encodedString == null){
-            Log.d(TAG, "returning null for bitmap");
             return null;
         } else{
             try {

@@ -5,7 +5,7 @@
     <string name="login_label">User sign in</string>
     <string name="successful_login">Login successful!</string>
     <string name="unsuccessful_login">Login unsuccessful.</string>
-    <string name="username">jdoe1</string>
+    <string name="username">jdoe</string>
     <string name="password">welcome1</string>
     <string name="username_textview_label">Enter username:</string>
     <string name="password_textview_label">Enter password:</string>
@@ -19,7 +19,6 @@
     <string name="payment_icon_label">Payment</string>
     <string name="contact_icon_label">Contact</string>
     <string name="add_session_label_button">Add Session</string>
-    <string name="session_history">Session History:</string>
     <string name="session_date_label">Date</string>
     <string name="session_title_label">Title</string>
     <string name="session_title_hint">Enter a brief title for the appointment</string>
