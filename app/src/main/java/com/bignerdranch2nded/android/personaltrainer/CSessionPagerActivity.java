@@ -39,10 +39,11 @@ public class CSessionPagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_session_pager);
 
         UUID sessionId = (UUID)getIntent().getSerializableExtra(EXTRA_SESSION_ID);
+        UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
 
         mViewPager = (ViewPager)findViewById(R.id.activity_session_view_pager);
 
-        mSessions = ClientLab.get(this).getSessions();
+        mSessions = ClientLab.get(this).getSessions(clientId);
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
@@ -57,8 +58,10 @@ public class CSessionPagerActivity extends AppCompatActivity {
             }
         });
 
+        Session session;
         for(int i = 0; i < mSessions.size(); i++){
-            if(mSessions.get(i).getSessionId().equals(sessionId)){
+            session = mSessions.get(i);
+            if(session.getSessionId().equals(sessionId) && session.getClientId().equals(clientId)){
                 mViewPager.setCurrentItem(i);
                 break;
             }
@@ -68,11 +71,6 @@ public class CSessionPagerActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if(item.getItemId() == android.R.id.home){
-//            UUID clientId = (UUID)getIntent().getSerializableExtra(EXTRA_CLIENT_ID);
-//
-//            Intent intent = ClientActivity.newIntent(CSessionPagerActivity.this, clientId);
-//            finish();
-//            startActivity(intent);
             Log.d(TAG, "onOptionsItemSelected");
             onBackPressed();
             return true;

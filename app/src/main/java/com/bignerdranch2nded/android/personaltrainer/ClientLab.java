@@ -102,13 +102,15 @@ public class ClientLab {
         mDatabase.insert(SessionListTable.SESSION_NAME, null, values);
     }
 
-    public List<Session> getSessions(){
+    public List<Session> getSessions(UUID clientId){
         List<Session> sessions = new ArrayList<>();
         ClientCursorWrapper cursor = queryClientInformation(null, null, "session");
         try{
             cursor.moveToFirst();
             while(!cursor.isAfterLast()){
-                sessions.add(cursor.getSession());
+                if(cursor.getSession().getClientId().equals(clientId)){
+                    sessions.add(cursor.getSession());
+                }
                 cursor.moveToNext();
             }
         } finally{

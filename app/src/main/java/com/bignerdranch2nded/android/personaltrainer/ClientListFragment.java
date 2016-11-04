@@ -2,6 +2,8 @@ package com.bignerdranch2nded.android.personaltrainer;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -109,14 +111,17 @@ public class ClientListFragment extends Fragment {
             itemView.setOnClickListener(this);
 
             mProfileImageView = (ImageView) itemView.findViewById(R.id.list_item_profile_image);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                mProfileImageView.setImageDrawable(getResources().getDrawable(R.drawable.user, getActivity().getApplicationContext().getTheme()));
+            } else{
+                mProfileImageView.setImageDrawable(getResources().getDrawable(R.drawable.user));
+            }
             mNameTextView = (TextView) itemView.findViewById(R.id.list_item_client_name_text_view);
             mNextSessionDateTextView = (TextView) itemView.findViewById(R.id.list_item_client_next_session_date_text_view);
         }
 
         public void bindClient(Client client) {
             mClient = client;
-            String name = mClient.getName();
-            Log.d(TAG, "Name: " + name);
             mNameTextView.setText(mClient.getName());
 
             mPhotoFile = ClientLab.get(getActivity()).getPhotoFile(mClient);

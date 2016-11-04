@@ -27,6 +27,9 @@ public class CSessionsListFragment extends Fragment {
     private RecyclerView mSessionRecyclerView;
     private SessionAdapter mAdapter;
 
+    private Client mClient;
+    private UUID clientId;
+
     private static final int REQUEST_DATE = 0;
 
     private Button mAddSessionButton;
@@ -41,8 +44,18 @@ public class CSessionsListFragment extends Fragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+        clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
+
+        mClient = ClientLab.get(getActivity()).getClient(clientId);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.fragment_session_list, container, false);
+
 
         mSessionRecyclerView = (RecyclerView)v.findViewById(R.id.session_recycler_view);
         mSessionRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -53,7 +66,6 @@ public class CSessionsListFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "add session button clicked");
-                UUID clientId = (UUID)getArguments().getSerializable(ARG_CLIENT_ID);
                 Session session = new Session();
                 session.setClientId(clientId);
                 ClientLab.get(getActivity()).addSession(session);
@@ -75,7 +87,7 @@ public class CSessionsListFragment extends Fragment {
 
     private void updateUI(){
         ClientLab clientLab = ClientLab.get(getActivity());
-        List<Session> sessions = clientLab.getSessions();
+        List<Session> sessions = clientLab.getSessions(clientId);
         if(mAdapter == null){
             mAdapter = new SessionAdapter(sessions);
             mSessionRecyclerView.setAdapter(mAdapter);

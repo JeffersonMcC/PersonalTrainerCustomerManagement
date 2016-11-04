@@ -4,25 +4,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp">
-    <ImageView
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/list_item_profile_image"
-        android:scaleType="centerInside"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:cropToPadding="true"
-        android:layout_marginRight="4dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#a2d4ff"
-        android:src="@drawable/user"/>
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/user"
+        app:civ_border_width="1dp"
+        app:civ_border_color="#FF000000"/>
+
+    <!--<ImageView-->
+        <!--android:scaleType="centerInside"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_height="60dp"-->
+        <!--android:cropToPadding="true"-->
+        <!--android:layout_marginRight="4dp"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:background="#a2d4ff"-->
+        <!--android:src="@drawable/user"/>-->
 
     <TextView
         android:id="@+id/list_item_client_name_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/list_item_profile_image"
         android:layout_toEndOf="@id/list_item_profile_image"
-        tools:text="Client name"/>
+        tools:text="Client name"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/list_item_client_next_session_date_text_view"
@@ -31,6 +43,7 @@
         android:paddingTop="8dp"
         tools:text="Date of next session: 9/6/16"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/list_item_profile_image"
         android:layout_toEndOf="@id/list_item_profile_image"
         android:layout_below="@id/list_item_client_name_text_view"/>

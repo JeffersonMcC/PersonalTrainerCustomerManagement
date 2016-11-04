@@ -16,8 +16,7 @@
             android:layout_margin="3dp"
             android:contentDescription="@string/client_profile_image_description"
             android:scaleType="centerInside"
-            android:cropToPadding="true"
-            android:background="#a2d4ff"/>
+            android:cropToPadding="true"/>
 
         <ImageButton
             android:id="@+id/client_camera_button"

@@ -67,11 +67,11 @@ public class CSessionFragment extends Fragment {
         mDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().onBackPressed();
-//                FragmentManager manager = getFragmentManager();
-//                DatePickerFragment dialog = DatePickerFragment.newInstance(new Date());
-//                dialog.setTargetFragment(CSessionFragment.this, REQUEST_DATE);
-//                dialog.show(manager, DIALOG_DATE);
+//                getActivity().onBackPressed();
+                FragmentManager manager = getFragmentManager();
+                DatePickerFragment dialog = DatePickerFragment.newInstance(new Date());
+                dialog.setTargetFragment(CSessionFragment.this, REQUEST_DATE);
+                dialog.show(manager, DIALOG_DATE);
             }
         });
 
